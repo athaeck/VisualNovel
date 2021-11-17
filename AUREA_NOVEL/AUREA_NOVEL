@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-11-17T21:17:51.992Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="naWJzB2ok5WLy6fHh_GD" version="15.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-17T21:20:35.778Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="Wvg1DZKCkve_AM5BPWRt" version="15.8.1" type="github">
   <diagram id="xzv7Ucktz6fMlxnHY5fI" name="Page-1">
-    <mxGraphModel dx="1943" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="938" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -9,6 +9,9 @@
         </mxCell>
         <mxCell id="cxPj_uXZRFsSBWIDVmJ1-2" value="&lt;h1&gt;Rahmenhandlung&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;align=center;" vertex="1" parent="1">
           <mxGeometry y="110" width="500" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cxPj_uXZRFsSBWIDVmJ1-4" value="Die Geschichte dreht sich darum, dass der Erzähler der Geschichte, also du, in einem Krankenhauszimmer in einem Krankenbett liegst und eine Reise antrittst." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry y="160" width="490" height="10" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
