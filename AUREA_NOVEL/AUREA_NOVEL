@@ -1,24 +1,33 @@
-<mxfile host="app.diagrams.net" modified="2021-11-18T21:15:19.210Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="3OBHcdNlSKBDYUk6qXFS" version="15.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-18T22:04:42.541Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="rlUcXzDMvCQYjLb5-JdS" version="15.8.2" type="github">
   <diagram id="xzv7Ucktz6fMlxnHY5fI" name="Page-1">
-    <mxGraphModel dx="2206" dy="801" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2827" dy="1162" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="cxPj_uXZRFsSBWIDVmJ1-4" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px&quot;&gt;Rahmenhandlung&lt;/font&gt;&lt;/b&gt;&lt;br&gt;Die Geschichte dreht sich darum, dass der Erzähler der Geschichte, also du, in einem Krankenhauszimmer in einem Krankenbett liegst und eine Reise antrittst.&lt;br&gt;Eines Tages, als du auf deinem Handy durch Instagram und Facebook durchscrollst und aktuelle Nachrichten liest, klopft es plötzlich an deiner Zimmertüre. Du stehst auf um nachzuschauen. Als du die Tür nach einem kurzen Moment, zögernd aufmachst, stehst du nicht der Person gegenüber, die geklopft hat, sondern stehst plötzlich in einer Lichtung zwischen Bäumen und einer Ruine. Du drehst dich um, um durch die geöffnete Tür wieder in das Zimmer und in dein Bett zu kommen. Die Tür und das Zimmer sind aber verschwunden.&amp;nbsp;&lt;br&gt;&lt;br&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="10" y="980" width="500" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="NtrHLK-wzVbAl8S5de71-6" value="&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Du brichst in Panik aus, da dein Rückzugsort auf einmal&amp;nbsp;verschwunden war. Du rennst in die entgegengesetzte Richtung, weil du das Gefühl hattest, dass du ohne nachzudenken und ohne auf die Umwelt zu achten einfach losgelaufen bist und erst jetzt aus der Trance erwacht bist. Nun bist du also in Panik und rennst in eine Richtung, die Plötzlich vor einem Abgrund zu Ende geht. Du schaust verzweifelt den bodenlosen Abgrund hinunter, drehst dich und fällst auf deine Knie. Du kauerst dich auf dem Boden zusammen und willst das alles nicht wahr haben. Eben warst du noch der alltäglichen Trostlosigkeit verfallen und jetzt liegst du hier, an einem Abgrund, auf einer Wiese, irgendwo. Keine Menschenseele&amp;nbsp;in Sicht, keine Flugzeuge am Himmel und nur diese eine Ruine. Du schläfst.&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Du wirst erneu geweckt, allerdings von einer sehr merkwürdig aussehenden&amp;nbsp;Kreatur. Vor Schreck springst du auf und stolperst bei der Flucht über deine Füße, die sich im Boden verhettert haben. Du fällst in ohnmacht.&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fillColor=default;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="-400" y="1220" width="500" height="291" as="geometry" />
+        <mxCell id="NtrHLK-wzVbAl8S5de71-6" value="&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Du brichst in Panik aus, da dein Rückzugsort auf einmal&amp;nbsp;verschwunden war. Du rennst in die entgegengesetzte Richtung, weil du das Gefühl hattest, dass du ohne nachzudenken und ohne auf die Umwelt zu achten einfach losgelaufen bist und erst jetzt aus der Trance erwacht bist. Nun bist du also in Panik und rennst in eine Richtung, die Plötzlich vor einem Abgrund zu Ende geht. Du schaust verzweifelt den bodenlosen Abgrund hinunter, drehst dich und fällst auf deine Knie. Du kauerst dich auf dem Boden zusammen und willst das alles nicht wahr haben. Eben warst du noch der alltäglichen Trostlosigkeit verfallen und jetzt liegst du hier, an einem Abgrund, auf einer Wiese, irgendwo. Keine Menschenseele&amp;nbsp;in Sicht, keine Flugzeuge am Himmel und nur diese eine Ruine. Du schläfst.&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Du wirst erneu geweckt, allerdings von einer sehr merkwürdig aussehenden&amp;nbsp;Kreatur. Vor Schreck springst du auf und stolperst bei der Flucht über deine Füße, die sich im Boden verhettert haben. Du fällst in ohnmacht.&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fillColor=default;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="-400" y="1220" width="500" height="290" as="geometry" />
         </mxCell>
-        <mxCell id="NtrHLK-wzVbAl8S5de71-7" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=20;entryX=0.456;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.564;exitY=1.009;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="cxPj_uXZRFsSBWIDVmJ1-4" target="NtrHLK-wzVbAl8S5de71-6">
+        <mxCell id="NtrHLK-wzVbAl8S5de71-7" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=20;entryX=0.456;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.564;exitY=1.009;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="cxPj_uXZRFsSBWIDVmJ1-4" target="NtrHLK-wzVbAl8S5de71-6" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="110" y="1340" as="sourcePoint" />
             <mxPoint x="160" y="1290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NtrHLK-wzVbAl8S5de71-8" value="Branch 1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;labelBorderColor=default;" vertex="1" connectable="0" parent="NtrHLK-wzVbAl8S5de71-7">
+        <mxCell id="NtrHLK-wzVbAl8S5de71-8" value="Branch 1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;labelBorderColor=default;" parent="NtrHLK-wzVbAl8S5de71-7" vertex="1" connectable="0">
           <mxGeometry x="0.1707" y="3" relative="1" as="geometry">
             <mxPoint x="59" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O3L5YMNhM1VuEKAzugaz-1" value="Du wachst wieder auf und befindest dich eingeschlossen in einem Käfig wieder.&amp;nbsp;&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=default;strokeColor=default;" vertex="1" parent="1">
+          <mxGeometry x="-400" y="1580" width="500" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="O3L5YMNhM1VuEKAzugaz-3" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="NtrHLK-wzVbAl8S5de71-6" target="O3L5YMNhM1VuEKAzugaz-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="1500" as="sourcePoint" />
+            <mxPoint x="50" y="1450" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
