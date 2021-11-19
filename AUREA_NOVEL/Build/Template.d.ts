@@ -8,6 +8,10 @@ declare namespace Template {
             edge: number;
         };
     };
+    let sound: {
+        backgroundTheme: string;
+        click: string;
+    };
 }
 declare namespace Template {
     function Scene(): ƒS.SceneReturn;

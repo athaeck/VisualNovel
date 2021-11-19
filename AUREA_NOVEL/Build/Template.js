@@ -11,6 +11,12 @@ var Template;
             edge: 1
         }
     };
+    Template.sound = {
+        // Music
+        backgroundTheme: "",
+        // Sound
+        click: ""
+    };
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [

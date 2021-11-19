@@ -11,6 +11,15 @@ namespace Template {
     }
   }
 
+  export let sound ={
+    // Music
+    backgroundTheme: "",
+
+    // Sound
+    click:""
+
+  }
+
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: ƒS.Scenes = [
