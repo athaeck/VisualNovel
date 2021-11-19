@@ -3,7 +3,14 @@ var Template;
 (function (Template) {
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
-    console.log("FudgeStory template starting");
+    console.log("AUREA_NOVEL starting");
+    Template.transition = {
+        clock: {
+            duration: 1,
+            alpha: "../Images/Transitions/puzzle.png",
+            edge: 1
+        }
+    };
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [

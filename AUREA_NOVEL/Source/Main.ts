@@ -2,7 +2,14 @@ namespace Template {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
-  console.log("FudgeStory template starting");
+  console.log("AUREA_NOVEL starting");
+  export let transition = {
+    clock: {
+      duration:1,
+      alpha:"../Images/Transitions/puzzle.png",
+      edge:1
+    }
+  }
 
   window.addEventListener("load", start);
   function start(_event: Event): void {

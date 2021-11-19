@@ -1,0 +1,13 @@
+/* SPLASH SCREEN BACKGROUND */
+scene {
+  width: 1280px;
+  height: 720px;
+  display: inline-block;
+}
+
+
+/* Splashscreen */
+
+dialog {
+  background-image: url("Images/Backgrounds/starry.gif");
+}
