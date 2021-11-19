@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-11-18T22:04:42.541Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="rlUcXzDMvCQYjLb5-JdS" version="15.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-19T00:11:17.634Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="fFFq-vDHlB2Xk5uoZ8G9" version="15.8.2" type="github">
   <diagram id="xzv7Ucktz6fMlxnHY5fI" name="Page-1">
-    <mxGraphModel dx="2827" dy="1162" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1627" dy="465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -21,10 +21,10 @@
             <mxPoint x="59" y="-17" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="O3L5YMNhM1VuEKAzugaz-1" value="Du wachst wieder auf und befindest dich eingeschlossen in einem Käfig wieder.&amp;nbsp;&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=default;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="O3L5YMNhM1VuEKAzugaz-1" value="Du wachst wieder auf und befindest dich eingeschlossen in einem Käfig wieder. Neben dir stehen weitere Käfige, in denen weitere seltsame Kreaturen gefangen halten werden. Dir fällt auf, dass du auch nicht mehr auf der Lichtung am Rande des Abgrundes bist, sondern in einem Keller, vermutlich von einer Burg oder einem Haus, das aus Stein besteht. Du sitzt dich in die Mitte des Käfigs und vergräbst deinen Kopf und willst diese Szenerie nicht wahr haben. Nach einer Weile kommt ein Wärter zu den Käfigen und schaut nach dem Rechten. Auch er ist einer dieser Kreaturen, die in den anderen Käfigen gefangen sind. Du frägst ihn" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="-400" y="1580" width="500" height="330" as="geometry" />
         </mxCell>
-        <mxCell id="O3L5YMNhM1VuEKAzugaz-3" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="NtrHLK-wzVbAl8S5de71-6" target="O3L5YMNhM1VuEKAzugaz-1">
+        <mxCell id="O3L5YMNhM1VuEKAzugaz-3" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="NtrHLK-wzVbAl8S5de71-6" target="O3L5YMNhM1VuEKAzugaz-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint y="1500" as="sourcePoint" />
             <mxPoint x="50" y="1450" as="targetPoint" />
