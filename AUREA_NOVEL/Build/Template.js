@@ -16,7 +16,7 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene() {
-        console.log("FudgeStory Template Scene starting");
+        console.log("moin");
     }
     Template.Scene = Scene;
 })(Template || (Template = {}));
