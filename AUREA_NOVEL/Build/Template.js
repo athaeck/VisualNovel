@@ -1,8 +1,8 @@
 "use strict";
 var Template;
 (function (Template) {
-    Template.ƒ = FudgeCore;
-    Template.ƒS = FudgeStory;
+    Template.f = FudgeCore;
+    Template.fS = FudgeStory;
     console.log("AUREA_NOVEL starting");
     Template.transition = {
         clock: {
@@ -17,13 +17,37 @@ var Template;
         // Sound
         click: ""
     };
+    Template.location = {
+        bedroom: {
+            name: "",
+            background: "../Images/Backgrounds/Bedroom_Night.png"
+        }
+    };
+    Template.characters = {
+        narrator: {
+            name: ""
+        },
+        you: {
+            name: "",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                // Pfad als String angeben
+                angry: "",
+                happy: "",
+                upset: ""
+            }
+        }
+    };
+    Template.dataForSave = {};
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
             { scene: Template.Scene, name: "Scene" }
         ];
+        let uiElement = document.querySelector("[type=interface]");
+        Template.dataForSave = Template.fS.Progress.setData(Template.dataForSave, uiElement);
         // start the sequence
-        Template.ƒS.Progress.go(scenes);
+        Template.fS.Progress.go(scenes);
     }
 })(Template || (Template = {}));
 var Template;

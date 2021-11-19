@@ -1,5 +1,5 @@
 namespace Template {
-  export async function Scene(): ƒS.SceneReturn {
+  export async function Scene(): fS.SceneReturn {
     console.log("moin");
   }
 }
