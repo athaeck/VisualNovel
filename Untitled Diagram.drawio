@@ -1,9 +1,47 @@
-<mxfile host="app.diagrams.net" modified="2021-11-26T16:43:09.619Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="yzgtaxXxpEelEHMfP_V9" version="15.8.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-26T16:48:39.065Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="sZOLSQD8n3x6A0snYZrC" version="15.8.6" type="github">
   <diagram id="dlzz872O1H_yJBpvxqHe" name="Page-1">
-    <mxGraphModel dx="2000" dy="1162" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1143" dy="664" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="x4ZPLY2yDi_GX-EiLzeu-1" target="x4ZPLY2yDi_GX-EiLzeu-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-1" value="Geht ins Fußball Stadion" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="x4ZPLY2yDi_GX-EiLzeu-3" target="x4ZPLY2yDi_GX-EiLzeu-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-7" value="[ja]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x4ZPLY2yDi_GX-EiLzeu-6">
+          <mxGeometry x="-0.1148" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="x4ZPLY2yDi_GX-EiLzeu-3" target="x4ZPLY2yDi_GX-EiLzeu-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="520" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="310" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-11" value="[nein]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x4ZPLY2yDi_GX-EiLzeu-10">
+          <mxGeometry x="-0.0185" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-3" value="an der langen getränkeschlange anstellen" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="310" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-5" value="kommt zu spät zum platz" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="525" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x4ZPLY2yDi_GX-EiLzeu-9" value="steht am platz und sieht den Einlauf" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="525" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
