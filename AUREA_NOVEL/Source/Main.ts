@@ -6,7 +6,7 @@ namespace Template {
   export let transition = {
     clock: {
       duration:1,
-      alpha:"../Images/Transitions/puzzle.png",
+      alpha:"./Images/Transitions/puzzle.png",
       edge:1
     }
   }
@@ -22,23 +22,23 @@ namespace Template {
 
   export let location={
     bedroom:{
-      name:"",
-      background:"../Images/Backgrounds/Bedroom_Night.png"
+      name:"bedroom",
+      background:"./Images/Backgrounds/Bedroom_Night.png"
     }
   }
 
   export let characters = {
     narrator:{
-      name:""
+      name:"narrator"
     },
     you:{
-      name:"",
+      name:"you",
       origin: fS.ORIGIN.CENTER,
       pose:{
         // Pfad als String angeben
-        angry:"",
-        happy:"",
-        upset:""
+        angry:"./Images/Backgrounds/Bedroom_Night.png",
+        happy:"./Images/Backgrounds/Bedroom_Night.png",
+        upset:"./Images/Backgrounds/Bedroom_Night.png"
       }
     }
   }
