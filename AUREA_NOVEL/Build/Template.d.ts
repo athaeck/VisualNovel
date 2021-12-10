@@ -1,4 +1,4 @@
-declare namespace Template {
+declare namespace Aurea_Novel {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let transition: {
@@ -33,7 +33,11 @@ declare namespace Template {
         };
     };
     let dataForSave: {};
+    function fromLeftToRight(): fS.AnimationDefinition;
 }
-declare namespace Template {
+declare namespace Aurea_Novel {
     function Scene(): fS.SceneReturn;
+}
+declare namespace Aurea_Novel {
+    function SevdaTest(): fS.SceneReturn;
 }
