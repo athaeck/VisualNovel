@@ -31,8 +31,17 @@ declare namespace Aurea_Novel {
                 upset: string;
             };
         };
+        clock: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
     };
-    let dataForSave: {};
+    let dataForSave: {
+        nameOfYou: string;
+    };
     function fromLeftToRight(): fS.AnimationDefinition;
 }
 declare namespace Aurea_Novel {

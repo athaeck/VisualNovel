@@ -40,11 +40,19 @@ namespace Aurea_Novel {
         happy: "./Images/Backgrounds/Bedroom_Night.png",
         upset: "./Images/Backgrounds/Bedroom_Night.png"
       }
+    },
+    clock: {
+      name: "clock",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/800px_COLOURBOX4793106.jpg"
+        // idle: "./Images/Characters/WhatsApp\ Image\ 2021-12-10 at 19.28.43.jpeg"
+      }
     }
   };
 
   export let dataForSave = {
-
+    nameOfYou: ""
   };
 
   export function fromLeftToRight(): fS.AnimationDefinition {
