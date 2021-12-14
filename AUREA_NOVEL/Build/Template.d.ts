@@ -17,6 +17,10 @@ declare namespace Aurea_Novel {
             name: string;
             background: string;
         };
+        nachttisch: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         narrator: {
@@ -31,7 +35,23 @@ declare namespace Aurea_Novel {
                 upset: string;
             };
         };
-        clock: {
+        bro: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                angry: string;
+                happy: string;
+                upset: string;
+            };
+        };
+        cam: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        image: {
             name: string;
             origin: f.ORIGIN2D;
             pose: {
@@ -43,6 +63,9 @@ declare namespace Aurea_Novel {
         nameOfYou: string;
     };
     function fromLeftToRight(): fS.AnimationDefinition;
+    function fromCenterToRight(): fS.AnimationDefinition;
+    function fromDownLeftToTopRight(): fS.AnimationDefinition;
+    function fromCentertoCenter(): fS.AnimationDefinition;
 }
 declare namespace Aurea_Novel {
     function Scene(): fS.SceneReturn;
