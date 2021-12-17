@@ -127,7 +127,9 @@ namespace Aurea_Novel {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: fS.Scenes = [
-      { scene: SevdaTest, name: "Scene" }
+      { id: "sevda", scene: SevdaTest, name: "Scene" },
+      { id: "das", scene: Scene, name: "das" },
+       {id: "intro", scene: Intro, name: "Intro"}
     ];
 
 

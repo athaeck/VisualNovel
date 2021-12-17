@@ -1,4 +1,7 @@
 declare namespace Aurea_Novel {
+    function Intro(): fS.SceneReturn;
+}
+declare namespace Aurea_Novel {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let transition: {

@@ -1,6 +1,16 @@
 "use strict";
 var Aurea_Novel;
 (function (Aurea_Novel) {
+    async function Intro() {
+        console.log("intro");
+        await Aurea_Novel.fS.update(Aurea_Novel.transition.clock.duration, Aurea_Novel.transition.clock.alpha, Aurea_Novel.transition.clock.edge);
+        await Aurea_Novel.fS.Location.show(Aurea_Novel.location.bedroom);
+        // await fS.update(1);
+    }
+    Aurea_Novel.Intro = Intro;
+})(Aurea_Novel || (Aurea_Novel = {}));
+var Aurea_Novel;
+(function (Aurea_Novel) {
     Aurea_Novel.f = FudgeCore;
     Aurea_Novel.fS = FudgeStory;
     console.log("AUREA_NOVEL starting");
@@ -125,7 +135,9 @@ var Aurea_Novel;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Aurea_Novel.SevdaTest, name: "Scene" }
+            { id: "sevda", scene: Aurea_Novel.SevdaTest, name: "Scene" },
+            { id: "das", scene: Aurea_Novel.Scene, name: "das" },
+            { id: "intro", scene: Aurea_Novel.Intro, name: "Intro" }
         ];
         let uiElement = document.querySelector("[type=interface]");
         Aurea_Novel.dataForSave = Aurea_Novel.fS.Progress.setData(Aurea_Novel.dataForSave, uiElement);
@@ -271,6 +283,7 @@ var Aurea_Novel;
         if (viewSel) {
             await Aurea_Novel.fS.Character.hide(Aurea_Novel.characters.image);
         }
+        return "intro";
     }
     Aurea_Novel.SevdaTest = SevdaTest;
 })(Aurea_Novel || (Aurea_Novel = {}));

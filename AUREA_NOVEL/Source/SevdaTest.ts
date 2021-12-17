@@ -94,5 +94,8 @@ namespace Aurea_Novel {
         break;
     }
     if (viewSel) { await fS.Character.hide(characters.image); }
+
+    return "intro"
   }
+
 }
