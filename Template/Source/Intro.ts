@@ -3,9 +3,9 @@ namespace Template {
     console.log("Intro");
 
 
-    fS.Inventory.add(items.pen)
-    const is: string[] = await fS.Inventory.open();
-    console.log(is);
+    // fS.Inventory.add(items.pen)
+    // const is: string[] = await fS.Inventory.open();
+    // console.log(is);
 
 
 
