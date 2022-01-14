@@ -1,16 +1,35 @@
 declare namespace Template {
+    let text: {
+        narrator: {
+            T0000: string;
+            T0001: string;
+        };
+        aisaka: {
+            T0000: string;
+            T0001: string;
+        };
+        kohana: {
+            T0000: string;
+        };
+    };
+}
+declare namespace Template {
+    type StoryDecisionEndingImpact = {
+        _isGoodEnding: boolean;
+    };
+    function ValidateEnding(data: StoryDecisionEndingImpact): void;
 }
 declare namespace Template {
     function Intro(): fS.SceneReturn;
 }
 declare namespace Template {
-    let items: {
-        pen: {
-            name: string;
-            description: string;
-            image: string;
-        };
+    type Items = {
+        [key: string]: fS.ItemDefinition;
     };
+    let items: Items;
+    function AddItem(item: fS.ItemDefinition): void;
+    function GetInventory(): Promise<string[]>;
+    function AddItemToInventory(item: string): boolean;
 }
 declare namespace Template {
 }
@@ -32,4 +51,14 @@ declare namespace Template {
     function handleKeyPress(event: KeyboardEvent): Promise<void>;
 }
 declare namespace Template {
+}
+declare namespace Template {
+    let transitions: {
+        clock: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+    };
+    function GetTransistion(id: string): fS.AnimationDefinition;
 }

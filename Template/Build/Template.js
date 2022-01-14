@@ -1,11 +1,43 @@
 "use strict";
 var Template;
 (function (Template) {
+    Template.text = {
+        narrator: {
+            T0000: "",
+            T0001: ""
+        },
+        aisaka: {
+            T0000: "Hi",
+            T0001: ""
+        },
+        kohana: {
+            T0000: "Test"
+        }
+    };
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    function PlayGoodEnd(data) {
+    }
+    function PlayBadEnding(data) {
+    }
+    function ValidateEnding(data) {
+        if (data._isGoodEnding) {
+            PlayGoodEnd(data);
+        }
+        else {
+            PlayBadEnding(data);
+        }
+    }
+    Template.ValidateEnding = ValidateEnding;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function Intro() {
         console.log("Intro");
-        Template.fS.Inventory.add(Template.items.pen);
-        const is = await Template.fS.Inventory.open();
-        console.log(is);
+        // fS.Inventory.add(items.pen)
+        // const is: string[] = await fS.Inventory.open();
+        // console.log(is);
         // let text = {
         //   narrator: {
         //     T0000: "",
@@ -56,6 +88,25 @@ var Template;
             image: "das"
         }
     };
+    function AddItem(item) {
+        Template.items[item.name] = item;
+    }
+    Template.AddItem = AddItem;
+    async function GetInventory() {
+        return await Template.fS.Inventory.open();
+    }
+    Template.GetInventory = GetInventory;
+    function AddItemToInventory(item) {
+        const i = Template.items[item];
+        if (i) {
+            Template.fS.Inventory.add(i);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    Template.AddItemToInventory = AddItemToInventory;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -172,5 +223,18 @@ var Template;
         }
     }
     Template.handleKeyPress = handleKeyPress;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    Template.transitions = {
+        clock: {
+            duration: 1,
+            alpha: "",
+            edge: 1
+        }
+    };
+    function GetTransistion(id) {
+    }
+    Template.GetTransistion = GetTransistion;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map
