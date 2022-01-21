@@ -55,7 +55,7 @@ var FudgeStory;
         static serialize() {
             let serialization = { characters: [] };
             for (let pose of Base.middle.getChildren()) {
-                let poseUrl = pose.getComponent(ƒ.ComponentMaterial).material.getCoat().texture.url;
+                let poseUrl = pose.getComponent(ƒ.ComponentMaterial).material.coat.texture.url;
                 let origin = Reflect.get(pose, "origin");
                 serialization.characters.push({ name: pose.name, pose: poseUrl, origin: origin, position: pose.mtxLocal.translation.toVector2().serialize() });
             }
@@ -201,8 +201,6 @@ var FudgeStory;
             // _pose.cmpTransform.addEventListener(ƒ.EVENT.MUTATE, () => Base.viewport.draw());
             // ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, () => Base.viewport.draw());
             let cmpAnimator = new ƒ.ComponentAnimator(_animation, _playmode);
-            for (let cmpOldAnimator of _pose.getComponents(ƒ.ComponentAnimator))
-                _pose.removeComponent(cmpOldAnimator);
             _pose.addComponent(cmpAnimator);
             cmpAnimator.addEventListener("componentActivate" /* COMPONENT_ACTIVATE */, Animation.trackComponents);
             cmpAnimator.addEventListener("componentDeactivate" /* COMPONENT_DEACTIVATE */, Animation.trackComponents);
@@ -285,6 +283,10 @@ var FudgeStory;
         static async animate(_character, _pose, _animation) {
             let character = Character.get(_character);
             let pose = await character.getPose(_pose);
+            for (let cmpOldAnimator of pose.getComponents(ƒ.ComponentAnimator))
+                pose.removeComponent(cmpOldAnimator);
+            if (!_animation)
+                return;
             let animation = FudgeStory.Animation.create(_animation);
             FudgeStory.Base.middle.appendChild(pose);
             return FudgeStory.Animation.attach(pose, animation, _animation.playmode);
@@ -411,7 +413,7 @@ var FudgeStory;
      * Pass values in percent relative to the upper left corner.
      */
     function positionPercent(_x, _y) {
-        let size = Reflect.get(FudgeStory.Base, "size").copy;
+        let size = Reflect.get(FudgeStory.Base, "size").clone;
         let position = new FudgeStory.Position(-size.x / 2, size.y / 2);
         size.x *= _x / 100;
         size.y *= -_y / 100;
@@ -629,7 +631,8 @@ var FudgeStory;
             _event.stopPropagation();
             if (_event.target == this.dialog)
                 return;
-            this.callback(Reflect.get(_event.target, "innerHTML"));
+            if (this.callback)
+                this.callback(Reflect.get(_event.target, "innerHTML"));
         };
     }
     FudgeStory.Menu = Menu;
