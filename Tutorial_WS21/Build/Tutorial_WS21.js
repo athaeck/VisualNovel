@@ -230,15 +230,6 @@ var Tutorial_WS21;
             }
         }
     };
-    // Animations
-    // export function jirkaAnimation(): ƒS.AnimationDefinition {
-    //   return {
-    //     start: { translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("white", 0) },
-    //     end: { translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red") },
-    //     duration: 1,
-    //     playmode: ƒS.ANIMATION_PLAYMODE.LOOP
-    //   };
-    // }
     // Animationen
     function fromRightToOutOfCanvas() {
         return {
@@ -264,11 +255,29 @@ var Tutorial_WS21;
         // started: false,
         // ended: false
     };
+    //  MENU - Audio functions
+    let volume = 1.0;
+    function incrementSound() {
+        if (volume >= 100)
+            return;
+        volume += 0.5;
+        Tutorial_WS21.ƒS.Sound.setMasterVolume(volume);
+    }
+    Tutorial_WS21.incrementSound = incrementSound;
+    function decrementSound() {
+        if (volume <= 0)
+            return;
+        volume -= 0.5;
+        Tutorial_WS21.ƒS.Sound.setMasterVolume(volume);
+    }
+    Tutorial_WS21.decrementSound = decrementSound;
     // Menü 
     let inGameMenu = {
         save: "Save",
         load: "Load",
-        close: "Close"
+        close: "Close",
+        turnUpVolume: "+",
+        turnDownVolume: "-"
         // open: "Open"
     };
     let gameMenu;
@@ -287,6 +296,11 @@ var Tutorial_WS21;
                 gameMenu.close();
                 menu = false;
                 break;
+            case inGameMenu.turnUpVolume:
+                incrementSound();
+                break;
+            case inGameMenu.turnDownVolume:
+                decrementSound();
             // case inGameMenu.open:
             //   gameMenu.open();
             //   menu = true;
@@ -319,15 +333,17 @@ var Tutorial_WS21;
                 break;
         }
     }
-    // Branching path zeigen, wie's geht; Szenenstruktur erklären
+    // Szenenstruktur
     window.addEventListener("load", start);
     function start(_event) {
         // Menü
         gameMenu = Tutorial_WS21.ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
+        // Menü zu Beginn geschlossen halten
+        buttonFunctionalities("Close");
         let scenes = [
             // Linear
             // { id: "Einführung", scene: Introduction, name: "Introduction to FS", next: "Ende"},
-            { scene: Tutorial_WS21.Introduction, name: "Introduction to FS" },
+            { scene: Tutorial_WS21.Introduction, name: "Introduction to FS" }
             // { scene: Scene2, name: "Scene Two" }
             // { id: "Ende", scene: End, name: "The End" }
         ];
