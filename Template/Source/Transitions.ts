@@ -1,13 +1,14 @@
 namespace Template {
-      export let transitions = {
+  export let transitions = {
     clock: {
       duration: 1,
-      alpha: "",
+      alpha: "./FreeTransitions/Others/020.jpg",
+      edge: 1
+    },
+    long: {
+      duration: 5,
+      alpha: "./FreeTransitions/Others/039.jpg",
       edge: 1
     }
   };
-
-    export function GetTransistion(id: string): fS.AnimationDefinition{
-        
-    }
 }

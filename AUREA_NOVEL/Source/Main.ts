@@ -45,7 +45,7 @@ namespace Aurea_Novel {
         upset: "./Images/Characters/itseme.png"
       }
     },
-      bro: {
+    bro: {
       name: "bro",
       origin: fS.ORIGIN.CENTER,
       pose: {
@@ -89,7 +89,7 @@ namespace Aurea_Novel {
     };
   }
   export function fromCenterToRight(): fS.AnimationDefinition {
-     return {
+    return {
       start: {
         translation: fS.positions.center,
         rotation: -20, scaling: new fS.Position(0.1, 0.1), color: fS.Color.CSS("white", 0)
@@ -101,7 +101,7 @@ namespace Aurea_Novel {
     };
   }
   export function fromDownLeftToTopRight(): fS.AnimationDefinition {
-     return {
+    return {
       start: {
         translation: fS.positions.bottomleft,
         rotation: -20, scaling: new fS.Position(0.5, 0.5), color: fS.Color.CSS("white", 0)
@@ -113,7 +113,7 @@ namespace Aurea_Novel {
     };
   }
   export function fromCentertoCenter(): fS.AnimationDefinition {
-     return {
+    return {
       start: {
         translation: fS.positions.center,
         rotation: -20, scaling: new fS.Position(0.1, 0.1), color: fS.Color.CSS("white", 0)
@@ -129,7 +129,7 @@ namespace Aurea_Novel {
     let scenes: fS.Scenes = [
       { id: "sevda", scene: SevdaTest, name: "Scene" },
       { id: "das", scene: Scene, name: "das" },
-       {id: "intro", scene: Intro, name: "Intro"}
+      { id: "intro", scene: Intro, name: "Intro" }
     ];
 
 

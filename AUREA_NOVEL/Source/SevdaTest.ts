@@ -28,7 +28,7 @@ namespace Aurea_Novel {
     await fS.Character.animate(characters.cam, characters.cam.pose.idle, fromCentertoCenter());
     // // await fS.Character.hide(characters.you);
     await fS.Speech.tell(characters.you, "Huch eine Kamera. Bro gehört die dir?");
-    await fS.Speech.tell(characters.bro, "hmpf mmpf hmpf..."); 
+    await fS.Speech.tell(characters.bro, "hmpf mmpf hmpf...");
     await fS.Speech.tell(characters.you, "Soll ich die Kamera aufnehmen?");
 
     let selectCameraOptions = {
@@ -37,7 +37,7 @@ namespace Aurea_Novel {
     };
 
     let camsSel: boolean = false;
-      
+
     let kameraSelectOptions = await fS.Menu.getInput(selectCameraOptions, "indioClass");
 
     switch (kameraSelectOptions) {
@@ -56,14 +56,14 @@ namespace Aurea_Novel {
         // await fS.Speech.tell(characters.you, "wunderprächtig");
         // camsSel = true;
         break;
-    //   case firstDialogueElementOptions.iSayOk:
-    //     await fS.Character.show(characters.you, characters.you.pose.happy, fS.positionPercent(30, 100));
-    //     break;
-    //   case firstDialogueElementOptions.iSayYes:
-    //     await  await fS.Speech.tell(characters.you, text.you.T0000);
-    //     break;
+      //   case firstDialogueElementOptions.iSayOk:
+      //     await fS.Character.show(characters.you, characters.you.pose.happy, fS.positionPercent(30, 100));
+      //     break;
+      //   case firstDialogueElementOptions.iSayYes:
+      //     await  await fS.Speech.tell(characters.you, text.you.T0000);
+      //     break;
       default:
-    //     await fS.Speech.tell(characters.you, "anny are you okey?");
+        //     await fS.Speech.tell(characters.you, "anny are you okey?");
         // await fS.Character.animate(characters.clock, characters.clock.pose.idle, fromLeftToRight());
         // await fS.Character.hide(characters.clock);
         break;
@@ -86,8 +86,8 @@ namespace Aurea_Novel {
       case selectCameraOptions.yes:
         viewSel = true;
         const count = camsSel ? 10 : 5;
-        for (let i = 0; i < count; i++){
-           await fS.Character.animate(characters.image, characters.image.pose.idle, fromDownLeftToTopRight());
+        for (let i = 0; i < count; i++) {
+          await fS.Character.animate(characters.image, characters.image.pose.idle, fromDownLeftToTopRight());
         }
         break;
       default:

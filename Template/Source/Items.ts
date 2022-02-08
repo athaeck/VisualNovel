@@ -2,11 +2,16 @@ namespace Template {
     export type Items = {
         [key: string]: fS.ItemDefinition
     };
-    export let items: Items = {
-        pen: {
-            name : "das",
-            description : "ist",
-            image : "das"
+    export let items = {
+        // pen: {
+        //     name : "das",
+        //     description : "ist",
+        //     image : "das"
+        // }
+        handy: {
+            name: "Handy",
+            description: "Das ist mein Handy. Vielleicht kann ich mir damit die Zeit vertreiben.",
+            image: "./Images/Items/Handy.png"
         }
     };
     export function AddItem(item: fS.ItemDefinition): void {
