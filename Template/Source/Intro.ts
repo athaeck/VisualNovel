@@ -79,8 +79,8 @@ namespace Template {
     switch (boredom_killer_element) {
       case boredom_killer.liegen_bleiben:
         selected_sleep = true;
-        // await fS.Speech.tell(characters.aisaka, "Hi2.");
-
+        await fS.Speech.tell(characters.du, "Dann versuch ich doch nochmal zu schlafen.");
+        await fS.Speech.tell(characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
         break;
       default:
         await fS.Speech.tell(characters.narrator, "Zunächst erhälst du einen Überblick über den erhaltenen Gegenstand. Dieser wird sobald du die Information geschlossen hast in dein Inventar für spätere Aktionen abgelegt.");
@@ -102,14 +102,18 @@ namespace Template {
                       </div>`);
         await fS.Character.hide(characters.handy);
         await fS.update(1);
+        fS.Inventory.add(items.handy);
         fS.Sound.play(sound.handy_notification, 1, false);
         await fS.Speech.tell(characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
         ViewInsta();
-        await fS.update(1);
+        fS.Progress.defineSignal([() => fS.Progress.delay(10)]);
+        // await fS.update(1);
         await fS.Speech.tell(characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
         break;
     }
-
+    await fS.Location.show(locations.blackscreen);
+    fS.Character.hideAll();
+    await fS.update(2);
 
 
   }
