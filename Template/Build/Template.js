@@ -146,7 +146,7 @@ var Template;
         Template.fS.Sound.play(Template.sound.hospital_background, 0.2, true);
         await Template.fS.Location.show(Template.locations.hospital_room);
         await Template.fS.update(Template.transitions.long.duration, Template.transitions.long.alpha, Template.transitions.long.edge);
-        await Template.fS.Character.show(Template.characters.du, Template.characters.du.pose.idle, Template.fS.positionPercent(-10, -100));
+        await Template.fS.Character.show(Template.characters.du, Template.characters.du.pose.idle, Template.fS.positionPercent(10, 80));
         await Template.fS.Speech.tell(Template.characters.du, "Was ein Traum, zumindest denke ich dass es ein Traum war. Ich bin so voller Medikamenten, dass ich gar nicht unterschieden kann, ob das gerade wirklich stattgefunden hat oder nicht.");
     }
     async function PlayBadEnding() {
@@ -234,7 +234,8 @@ var Template;
         switch (boredom_killer_element) {
             case boredom_killer.liegen_bleiben:
                 selected_sleep = true;
-                // await fS.Speech.tell(characters.aisaka, "Hi2.");
+                await Template.fS.Speech.tell(Template.characters.du, "Dann versuch ich doch nochmal zu schlafen.");
+                await Template.fS.Speech.tell(Template.characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
                 break;
             default:
                 await Template.fS.Speech.tell(Template.characters.narrator, "Zunächst erhälst du einen Überblick über den erhaltenen Gegenstand. Dieser wird sobald du die Information geschlossen hast in dein Inventar für spätere Aktionen abgelegt.");
@@ -256,13 +257,18 @@ var Template;
                       </div>`);
                 await Template.fS.Character.hide(Template.characters.handy);
                 await Template.fS.update(1);
+                Template.fS.Inventory.add(Template.items.handy);
                 Template.fS.Sound.play(Template.sound.handy_notification, 1, false);
                 await Template.fS.Speech.tell(Template.characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
                 ViewInsta();
-                await Template.fS.update(1);
+                Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(10)]);
+                // await fS.update(1);
                 await Template.fS.Speech.tell(Template.characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
                 break;
         }
+        await Template.fS.Location.show(Template.locations.blackscreen);
+        Template.fS.Character.hideAll();
+        await Template.fS.update(2);
     }
     Template.Intro = Intro;
 })(Template || (Template = {}));
@@ -306,6 +312,10 @@ var Template;
         hospital_room: {
             name: "Krankenhauszimmer",
             background: "./Images/Backgrounds/Krankenhauszimmer_1.png"
+        },
+        blackscreen: {
+            name: "Blackscreen",
+            background: "./Images/Backgrounds/blackscreen.png"
         }
     };
 })(Template || (Template = {}));
@@ -346,6 +356,8 @@ var Template;
         // "Die Elemente wurden selbst gezeichnet." +
         // "<br/>"
         `
+            Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
+            Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
             von <b>Nick Häcker</b>
             `);
     }

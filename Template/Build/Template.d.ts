@@ -75,6 +75,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        blackscreen: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace Template {

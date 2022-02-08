@@ -34,6 +34,8 @@ namespace Template {
             // "Die Elemente wurden selbst gezeichnet." +
             // "<br/>"
             `
+            Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
+            Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
             von <b>Nick Häcker</b>
             `
         );
