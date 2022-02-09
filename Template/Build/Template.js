@@ -74,6 +74,19 @@ var Template;
         };
     }
     Template.fromDownLeftToTopRight = fromDownLeftToTopRight;
+    function fromLeftToRight() {
+        return {
+            start: {
+                translation: Template.fS.positionPercent(10, 80),
+                rotation: -1, scaling: new Template.fS.Position(1, 1), color: Template.fS.Color.CSS("white", 1)
+            }, end: {
+                translation: Template.fS.positionPercent(90, 80), rotation: 1, scaling: new Template.fS.Position(1, 1), color: Template.fS.Color.CSS("white", 1)
+            },
+            duration: 5,
+            playmode: Template.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    Template.fromLeftToRight = fromLeftToRight;
     Template.dataForSave = {
         player: {
             name: ""
@@ -85,6 +98,7 @@ var Template;
         Template.gameMenu = Template.fS.Menu.create(Template.inGameMenu, Template.buttonFunctions, "game-menu");
         let scenes = [
             { scene: Template.Intro, name: "Introduction" },
+            { scene: Template.Glade, name: "Glade" },
             { scene: Template.End, name: "Ende" }
         ];
         let uiElement = document.querySelector("[type=interface]");
@@ -148,8 +162,12 @@ var Template;
         await Template.fS.update(Template.transitions.long.duration, Template.transitions.long.alpha, Template.transitions.long.edge);
         await Template.fS.Character.show(Template.characters.du, Template.characters.du.pose.idle, Template.fS.positionPercent(10, 80));
         await Template.fS.Speech.tell(Template.characters.du, "Was ein Traum, zumindest denke ich dass es ein Traum war. Ich bin so voller Medikamenten, dass ich gar nicht unterschieden kann, ob das gerade wirklich stattgefunden hat oder nicht.");
+        Template.fS.Text.setClass("end-screen");
+        Template.fS.Text.print("Du hast das Koma überlebt.");
     }
     async function PlayBadEnding() {
+        Template.fS.Text.setClass("end-screen");
+        Template.fS.Text.print("Du bist leider in deinem Komaschlaf verstorben.");
     }
     async function ValidateEnding(data) {
         if (data._isGoodEnding) {
@@ -171,11 +189,25 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function Glade() {
+        console.log("Start Glade Sequenz");
+        Template.fS.Sound.play(Template.sound.glade, 0.2, true);
+        await Template.fS.Location.show(Template.locations.landscape);
+        await Template.fS.Character.show(Template.characters.du, Template.characters.du.pose.idle, Template.fS.positionPercent(10, 80));
+        await Template.fS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge);
+        await Template.fS.Speech.tell(Template.characters.du, "Wo bin ich? Wie bin ich hier her gekommen? Wie komme ich zurück?");
+    }
+    Template.Glade = Glade;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function Intro() {
         console.log("Start with hospital room scene");
         // fS.Inventory.add(items.pen)
         // const is: string[] = await fS.Inventory.open();
         // console.log(is);
+        let delay_5sec = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(5)]);
+        let delay_2sec = Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(2)]);
         // let text = {
         //   narrator: {
         //     T0000: "",
@@ -260,15 +292,44 @@ var Template;
                 Template.fS.Inventory.add(Template.items.handy);
                 Template.fS.Sound.play(Template.sound.handy_notification, 1, false);
                 await Template.fS.Speech.tell(Template.characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
-                ViewInsta();
-                Template.fS.Progress.defineSignal([() => Template.fS.Progress.delay(10)]);
+                await ViewInsta();
+                await delay_5sec();
                 // await fS.update(1);
                 await Template.fS.Speech.tell(Template.characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
                 break;
         }
         await Template.fS.Location.show(Template.locations.blackscreen);
         Template.fS.Character.hideAll();
-        await Template.fS.update(2);
+        Template.fS.Speech.hide();
+        Template.fS.Sound.fade(Template.sound.hospital_background, 0, 1, true);
+        await Template.fS.update(1);
+        await delay_5sec();
+        Template.fS.Sound.play(Template.sound.hospital_background, 0.2, true);
+        Template.fS.Sound.play(Template.sound.door_knocking, 0.5, false);
+        await delay_2sec();
+        await Template.fS.update(1);
+        await Template.fS.Location.show(Template.locations.hospital_room);
+        await Template.fS.Character.show(Template.characters.du, Template.characters.du.pose.idle, Template.fS.positionPercent(10, 80));
+        await Template.fS.update(Template.transitions.long.duration, Template.transitions.long.alpha, Template.transitions.long.edge);
+        Template.fS.Speech.show();
+        await Template.fS.Speech.tell(Template.characters.du, "Ja?");
+        Template.fS.Sound.play(Template.sound.door_knocking, 0.5, false);
+        await delay_2sec();
+        await Template.fS.Speech.tell(Template.characters.du, "Jahaa?");
+        Template.fS.Sound.play(Template.sound.door_knocking, 0.5, false);
+        await delay_2sec();
+        await Template.fS.Speech.tell(Template.characters.du, "Herein!");
+        await Template.fS.Speech.tell(Template.characters.du, "Wieso kommt er nicht herein?");
+        await Template.fS.Speech.tell(Template.characters.du, "Hmhh. Er hat aufgehört, dann geh ich wohl mal nachsehen.");
+        await Template.fS.Character.animate(Template.characters.du, Template.characters.du.pose.idle, Template.fromLeftToRight());
+        await Template.fS.Speech.tell(Template.characters.du, "AAAAAAAAh was zum?");
+        await Template.fS.Location.show(Template.locations.portal);
+        Template.fS.Sound.play(Template.sound.portal_sound, 0.5, false);
+        Template.fS.Character.hideAll();
+        Template.fS.Speech.hide();
+        Template.fS.Sound.fade(Template.sound.hospital_background, 0, 1, true);
+        await Template.fS.update(1);
+        await delay_2sec();
     }
     Template.Intro = Intro;
 })(Template || (Template = {}));
@@ -316,6 +377,14 @@ var Template;
         blackscreen: {
             name: "Blackscreen",
             background: "./Images/Backgrounds/blackscreen.png"
+        },
+        portal: {
+            name: "Portal",
+            background: "./Images/Backgrounds/portal.png"
+        },
+        landscape: {
+            name: "Glade",
+            background: "./Images/Backgrounds/landscape.png"
         }
     };
 })(Template || (Template = {}));
@@ -421,12 +490,14 @@ var Template;
     Template.sound = {
         // music
         hospital_background: "./Audio/Hospital_Room_Ambience.wav",
-        tochscreen: "./Audio/tochscreen.wav",
+        glade: "./Audio/Light_Wind Loop.wav",
         // sound
+        tochscreen: "./Audio/tochscreen.wav",
         click: "",
         handy_notification: "./Audio/Notification_02.wav",
         footsteps_socks: "./Audio/Footsteps_Socks _90_fpm.wav",
-        door_knocking: "./Audio/Triple_Knock_on_Wooden_Door_v2.wav"
+        door_knocking: "./Audio/Triple_Knock_on_Wooden_Door_v2.wav",
+        portal_sound: "./Audio/mystic_portal.wav"
     };
 })(Template || (Template = {}));
 var Template;

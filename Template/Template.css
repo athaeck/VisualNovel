@@ -40,6 +40,11 @@ speech name {
 speech content input {
     border: unset;
     padding: 4px;
+    font-size: 20px;
+}
+
+speech content {
+    font-size: 20px;
 }
 
 .game-menu {
@@ -47,12 +52,14 @@ speech content input {
     background-color: #c4ab86;
     box-sizing: border-box;
     color: black;
+    border-radius: 10px;
 }
 
 .game-menu button {
     border: unset;
     background-color: transparent;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .item-definition {
@@ -87,8 +94,6 @@ speech content input {
 }
 
 .boredom-killer {
-    /* display: flex; */
-    /* justify-content: space-between; */
     width: 550px;
     border: unset;
     background-color: transparent;
@@ -101,7 +106,6 @@ speech content input {
     font-size: 20px;
     border-radius: 15px;
     padding: 28px 65px;
-    /* margin: 1; */
 }
 
 .boredom-killer #liegen_bleiben {

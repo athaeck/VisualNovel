@@ -8,6 +8,14 @@ namespace Template {
         blackscreen: {
             name: "Blackscreen",
             background: "./Images/Backgrounds/blackscreen.png"
+        },
+        portal: {
+            name: "Portal",
+            background: "./Images/Backgrounds/portal.png"
+        },
+        landscape: {
+            name: "Glade",
+            background: "./Images/Backgrounds/landscape.png"
         }
     };
 }

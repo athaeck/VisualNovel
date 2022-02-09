@@ -7,8 +7,8 @@ namespace Template {
     // const is: string[] = await fS.Inventory.open();
     // console.log(is);
 
-
-
+    let delay_5sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
+    let delay_2sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
     // let text = {
     //   narrator: {
     //     T0000: "",
@@ -105,17 +105,44 @@ namespace Template {
         fS.Inventory.add(items.handy);
         fS.Sound.play(sound.handy_notification, 1, false);
         await fS.Speech.tell(characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
-        ViewInsta();
-        fS.Progress.defineSignal([() => fS.Progress.delay(10)]);
+        await ViewInsta();
+        await delay_5sec();
         // await fS.update(1);
         await fS.Speech.tell(characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
         break;
     }
     await fS.Location.show(locations.blackscreen);
     fS.Character.hideAll();
-    await fS.update(2);
-
-
+    fS.Speech.hide();
+    fS.Sound.fade(sound.hospital_background, 0, 1, true);
+    await fS.update(1);
+    await delay_5sec();
+    fS.Sound.play(sound.hospital_background, 0.2, true);
+    fS.Sound.play(sound.door_knocking, 0.5, false);
+    await delay_2sec();
+    await fS.update(1);
+    await fS.Location.show(locations.hospital_room);
+    await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
+    await fS.update(transitions.long.duration, transitions.long.alpha, transitions.long.edge);
+    fS.Speech.show();
+    await fS.Speech.tell(characters.du, "Ja?");
+    fS.Sound.play(sound.door_knocking, 0.5, false);
+    await delay_2sec();
+    await fS.Speech.tell(characters.du, "Jahaa?");
+    fS.Sound.play(sound.door_knocking, 0.5, false);
+    await delay_2sec();
+    await fS.Speech.tell(characters.du, "Herein!");
+    await fS.Speech.tell(characters.du, "Wieso kommt er nicht herein?");
+    await fS.Speech.tell(characters.du, "Hmhh. Er hat aufgehört, dann geh ich wohl mal nachsehen.");
+    await fS.Character.animate(characters.du, characters.du.pose.idle, fromLeftToRight());
+    await fS.Speech.tell(characters.du, "AAAAAAAAh was zum?");
+    await fS.Location.show(locations.portal);
+    fS.Sound.play(sound.portal_sound, 0.5, false);
+    fS.Character.hideAll();
+    fS.Speech.hide();
+    fS.Sound.fade(sound.hospital_background, 0, 1, true);
+    await fS.update(1);
+    await delay_2sec();
   }
 
 }

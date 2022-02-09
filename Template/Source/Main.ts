@@ -80,6 +80,18 @@ namespace Template {
       playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
+  export function fromLeftToRight(): fS.AnimationDefinition {
+    return {
+      start: {
+        translation: fS.positionPercent(10, 80),
+        rotation: -1, scaling: new fS.Position(1, 1), color: fS.Color.CSS("white", 1)
+      }, end: {
+        translation: fS.positionPercent(90, 80), rotation: 1, scaling: new fS.Position(1, 1), color: fS.Color.CSS("white", 1)
+      },
+      duration: 5,
+      playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
 
   export let dataForSave = {
     player: {
@@ -95,6 +107,7 @@ namespace Template {
     gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
     let scenes: fS.Scenes = [
       { scene: Intro, name: "Introduction" },
+      { scene: Glade, name: "Glade" },
       { scene: End, name: "Ende" }
     ];
 

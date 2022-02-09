@@ -3,6 +3,7 @@ declare namespace Template {
     export import fS = FudgeStory;
     function fromCenterToMidLeft(): fS.AnimationDefinition;
     function fromDownLeftToTopRight(): fS.AnimationDefinition;
+    function fromLeftToRight(): fS.AnimationDefinition;
     let dataForSave: {
         player: {
             name: string;
@@ -52,6 +53,9 @@ declare namespace Template {
     function End(): fS.SceneReturn;
 }
 declare namespace Template {
+    function Glade(): fS.SceneReturn;
+}
+declare namespace Template {
     function Intro(): fS.SceneReturn;
 }
 declare namespace Template {
@@ -79,6 +83,14 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        portal: {
+            name: string;
+            background: string;
+        };
+        landscape: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace Template {
@@ -102,11 +114,13 @@ declare namespace Template {
 declare namespace Template {
     let sound: {
         hospital_background: string;
+        glade: string;
         tochscreen: string;
         click: string;
         handy_notification: string;
         footsteps_socks: string;
         door_knocking: string;
+        portal_sound: string;
     };
 }
 declare namespace Template {
