@@ -83,6 +83,7 @@ namespace Template {
         await fS.Speech.tell(characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
         break;
       default:
+        dataForSave.choice.selectHandy = true;
         await fS.Speech.tell(characters.narrator, "Zunächst erhälst du einen Überblick über den erhaltenen Gegenstand. Dieser wird sobald du die Information geschlossen hast in dein Inventar für spätere Aktionen abgelegt.");
         await fS.Character.animate(characters.handy, characters.handy.pose.idle, fromCenterToMidLeft());
         fS.Text.setClass("item-definition");
@@ -134,6 +135,7 @@ namespace Template {
     await fS.Speech.tell(characters.du, "Herein!");
     await fS.Speech.tell(characters.du, "Wieso kommt er nicht herein?");
     await fS.Speech.tell(characters.du, "Hmhh. Er hat aufgehört, dann geh ich wohl mal nachsehen.");
+    fS.Sound.play(sound.footsteps_socks, 0.5, false);
     await fS.Character.animate(characters.du, characters.du.pose.idle, fromLeftToRight());
     await fS.Speech.tell(characters.du, "AAAAAAAAh was zum?");
     await fS.Location.show(locations.portal);

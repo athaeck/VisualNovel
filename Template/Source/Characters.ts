@@ -34,8 +34,56 @@ namespace Template {
       pose: {
         idle: ""
       }
+    },
+    crystal: {
+      name: "Crystal",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Crystal.png"
+      }
+    },
+    ent: {
+      name: "Ent",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Ent.png"
+      }
+    },
+    goma: {
+      name: "Goma",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Goma.png"
+      }
+    },
+    illusion: {
+      name: "Illusion",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Illusion.png"
+      }
+    },
+    inkubus: {
+      name: "Inkubus",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Inkubus.png"
+      }
+    },
+    golem: {
+      name: "Stein Golem",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Iron_Golem.png"
+      }
+    },
+    sebu: {
+      name: "Sebu",
+      origin: fS.ORIGIN.CENTER,
+      pose: {
+        idle: "./Images/Characters/Sebu.png"
+      }
     }
-
   };
   export async function ValidateGender(): Promise<void> {
     let name: string = characters.du.name;

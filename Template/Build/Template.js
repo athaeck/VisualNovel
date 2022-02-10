@@ -91,6 +91,9 @@ var Template;
         player: {
             name: ""
         },
+        choice: {
+            selectHandy: false
+        },
         puls: 60
     };
     window.addEventListener("load", start);
@@ -98,8 +101,10 @@ var Template;
         Template.gameMenu = Template.fS.Menu.create(Template.inGameMenu, Template.buttonFunctions, "game-menu");
         let scenes = [
             { scene: Template.Intro, name: "Introduction" },
-            { scene: Template.Glade, name: "Glade" },
-            { scene: Template.End, name: "Ende" }
+            { id: "glade", scene: Template.Glade, name: "Glade", next: "fight" },
+            { id: "vault", scene: Template.Vault, name: "Vault", next: "fight" },
+            { id: "fight", scene: Template.Fight, name: "Fight" },
+            { id: "end", scene: Template.End, name: "Ende" }
         ];
         let uiElement = document.querySelector("[type=interface]");
         Template.dataForSave = Template.fS.Progress.setData(Template.dataForSave, uiElement);
@@ -138,6 +143,55 @@ var Template;
             origin: Template.fS.ORIGIN.BOTTOMLEFT,
             pose: {
                 idle: ""
+            }
+        },
+        crystal: {
+            name: "Crystal",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Crystal.png"
+            }
+        },
+        ent: {
+            name: "Ent",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Ent.png"
+            }
+        },
+        goma: {
+            name: "Goma",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Goma.png"
+            }
+        },
+        illusion: {
+            name: "Illusion",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Illusion.png"
+            }
+        },
+        inkubus: {
+            name: "Inkubus",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Inkubus.png"
+            }
+        },
+        golem: {
+            name: "Stein Golem",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Iron_Golem.png"
+            }
+        },
+        sebu: {
+            name: "Sebu",
+            origin: Template.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Sebu.png"
             }
         }
     };
@@ -186,6 +240,13 @@ var Template;
         await ValidateEnding(endDefinition);
     }
     Template.End = End;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Fight() {
+        console.log("Start Fight Sequenz");
+    }
+    Template.Fight = Fight;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -270,6 +331,7 @@ var Template;
                 await Template.fS.Speech.tell(Template.characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
                 break;
             default:
+                Template.dataForSave.choice.selectHandy = true;
                 await Template.fS.Speech.tell(Template.characters.narrator, "Zunächst erhälst du einen Überblick über den erhaltenen Gegenstand. Dieser wird sobald du die Information geschlossen hast in dein Inventar für spätere Aktionen abgelegt.");
                 await Template.fS.Character.animate(Template.characters.handy, Template.characters.handy.pose.idle, Template.fromCenterToMidLeft());
                 Template.fS.Text.setClass("item-definition");
@@ -321,6 +383,7 @@ var Template;
         await Template.fS.Speech.tell(Template.characters.du, "Herein!");
         await Template.fS.Speech.tell(Template.characters.du, "Wieso kommt er nicht herein?");
         await Template.fS.Speech.tell(Template.characters.du, "Hmhh. Er hat aufgehört, dann geh ich wohl mal nachsehen.");
+        Template.fS.Sound.play(Template.sound.footsteps_socks, 0.5, false);
         await Template.fS.Character.animate(Template.characters.du, Template.characters.du.pose.idle, Template.fromLeftToRight());
         await Template.fS.Speech.tell(Template.characters.du, "AAAAAAAAh was zum?");
         await Template.fS.Location.show(Template.locations.portal);
@@ -345,27 +408,58 @@ var Template;
             name: "Handy",
             description: "Das ist mein Handy. Vielleicht kann ich mir damit die Zeit vertreiben.",
             image: "./Images/Items/Handy.png"
+        },
+        crystal_sheet: {
+            name: "Crystals Charakter-Informationen",
+            description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Crystal.",
+            image: "./Images/Items/Crystal_Charaktersheet.png"
+        },
+        ent_sheet: {
+            name: "Ents Charakter-Informationen",
+            description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Ent.",
+            image: "./Images/Items/Ent_Charaktersheet.png"
+        },
+        goma_sheet: {
+            name: "Gomas Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des mächtigen Gomas",
+            image: "./Images/Items/Goma_Charactersheet.png"
+        },
+        illusion_sheet: {
+            name: "Illusions Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Illusion.",
+            image: "./Images/Items/Ilusian_Charaktersheet.png"
+        },
+        inkubus_sheet: {
+            name: "Inkubus Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Inkubus.",
+            image: "./Images/Items/Inkubus_Charaktersheet.png"
+        },
+        sebu_sheet: {
+            name: "Sebus Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Sebu.",
+            image: "./Images/Items/Sebu_Charaktersheet.png"
+        },
+        golem_sheet: {
+            name: "Steingolem Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Steingolem.",
+            image: "./Images/Items/Steingolem_Charaktersheet.png"
         }
     };
-    function AddItem(item) {
-        Template.items[item.name] = item;
-    }
-    Template.AddItem = AddItem;
-    async function GetInventory() {
-        return await Template.fS.Inventory.open();
-    }
-    Template.GetInventory = GetInventory;
-    function AddItemToInventory(item) {
-        const i = Template.items[item];
-        if (i) {
-            Template.fS.Inventory.add(i);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    Template.AddItemToInventory = AddItemToInventory;
+    // export function AddItem(item: fS.ItemDefinition): void {
+    //     items[item.name] = item;
+    // }
+    // export async function GetInventory(): Promise<string[]> {
+    //     return await fS.Inventory.open();
+    // }
+    // export function AddItemToInventory(item: string): boolean {
+    //     const i: fS.ItemDefinition = items[item];
+    //     if (i) {
+    //         fS.Inventory.add(i);
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -514,5 +608,12 @@ var Template;
             edge: 1
         }
     };
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Vault() {
+        console.log("Start Vault Sequenz");
+    }
+    Template.Vault = Vault;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map

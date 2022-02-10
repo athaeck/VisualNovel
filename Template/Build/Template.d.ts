@@ -8,6 +8,9 @@ declare namespace Template {
         player: {
             name: string;
         };
+        choice: {
+            selectHandy: boolean;
+        };
         puls: number;
     };
 }
@@ -42,6 +45,55 @@ declare namespace Template {
                 idle: string;
             };
         };
+        crystal: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        ent: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        goma: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        illusion: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        inkubus: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        golem: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
+        sebu: {
+            name: string;
+            origin: f.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
     };
     function ValidateGender(): Promise<void>;
 }
@@ -51,6 +103,9 @@ declare namespace Template {
     };
     function ValidateEnding(data: StoryDecisionEndingImpact): Promise<void>;
     function End(): fS.SceneReturn;
+}
+declare namespace Template {
+    function Fight(): fS.SceneReturn;
 }
 declare namespace Template {
     function Glade(): fS.SceneReturn;
@@ -68,10 +123,42 @@ declare namespace Template {
             description: string;
             image: string;
         };
+        crystal_sheet: {
+            name: string;
+            description: string;
+            image: string;
+        };
+        ent_sheet: {
+            name: string;
+            description: string;
+            image: string;
+        };
+        goma_sheet: {
+            name: string;
+            descpription: string;
+            image: string;
+        };
+        illusion_sheet: {
+            name: string;
+            descpription: string;
+            image: string;
+        };
+        inkubus_sheet: {
+            name: string;
+            descpription: string;
+            image: string;
+        };
+        sebu_sheet: {
+            name: string;
+            descpription: string;
+            image: string;
+        };
+        golem_sheet: {
+            name: string;
+            descpription: string;
+            image: string;
+        };
     };
-    function AddItem(item: fS.ItemDefinition): void;
-    function GetInventory(): Promise<string[]>;
-    function AddItemToInventory(item: string): boolean;
 }
 declare namespace Template {
     let locations: {
@@ -136,4 +223,7 @@ declare namespace Template {
             edge: number;
         };
     };
+}
+declare namespace Template {
+    function Vault(): fS.SceneReturn;
 }

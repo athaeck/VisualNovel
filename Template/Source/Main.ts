@@ -97,6 +97,9 @@ namespace Template {
     player: {
       name: ""
     },
+    choice: {
+      selectHandy: false
+    },
     puls: 60
   };
 
@@ -107,8 +110,10 @@ namespace Template {
     gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
     let scenes: fS.Scenes = [
       { scene: Intro, name: "Introduction" },
-      { scene: Glade, name: "Glade" },
-      { scene: End, name: "Ende" }
+      { id: "glade", scene: Glade, name: "Glade", next: "fight" },
+      { id: "vault", scene: Vault, name: "Vault", next: "fight" },
+      { id: "fight", scene: Fight, name: "Fight" },
+      { id: "end", scene: End, name: "Ende" }
     ];
 
 

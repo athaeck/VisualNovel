@@ -21,7 +21,7 @@ body {
 }
 
 speech {
-    background-color: #e7e2da;
+    background-color: rgba(231, 226, 218, 0.7);
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -49,7 +49,7 @@ speech content {
 
 .game-menu {
     border: unset;
-    background-color: #c4ab86;
+    background-color: rgba(196, 171, 134, 0.7);
     box-sizing: border-box;
     color: black;
     border-radius: 10px;
