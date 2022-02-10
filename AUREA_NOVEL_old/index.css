@@ -1,0 +1,38 @@
+scene {
+    width: 1280px;
+    height: 720px;
+    display: block;
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+div {
+    min-height: 100px;
+}
+
+speech {
+    /* position: absolute; */
+    width: 100%;
+    /* position: relative; */
+    /* top: 10px; */
+    /* top: 0; */
+    height: 100%;
+}
+
+.indioClass {
+    /* display: flex; */
+    justify-content: space-between;
+}
+
+.indioClass button {
+    padding: 14px;
+    background-color: red;
+    color: white;
+    margin: 7px;
+    border: unset;
+    border-radius: 10px;
+}

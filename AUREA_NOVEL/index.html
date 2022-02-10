@@ -2,32 +2,47 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <script src="Fudge/FudgeCore.js"></script>
-  <script src="FudgeStory/FudgeStory.js"></script>
-  <script src="./Build/Template.js"></script>
-  <title>Fudge Story Template</title>
-  <splash src="Images/Startbildschirm.png"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="Fudge/FudgeCore.js"></script>
+    <script src="FudgeStory/FudgeStory.js"></script>
+    <script src="./Build/AUREA_NOVEL.js"></script>
+    <title>Aurea Novel</title>
+    <splash src="Images/Screen.png" />
 </head>
 
 <body>
-  <scene>
-    <div> 
-      <speech class="speech-perfect">
-      <name></name>
-      <content></content>
-    </speech>
-  </div>
-    <canvas height="1920" height="1080"></canvas>
+    <scene>
+        <canvas></canvas>
 
- 
+        <speech>
+            <name></name>
+            <content></content>
+        </speech>
 
-    <dialog type="text">
-     
-    </dialog>
-  </scene>
+        <dialog type="text">
+
+        </dialog>
+        <dialog type="inventory">
+            <button type="button">close</button>
+            <ul>
+                <!-- <li>Fishy fish</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li> -->
+            </ul>
+        </dialog>
+        <div type="interface">
+            <!-- Ryu Meter -->
+            <!-- <input name="scoreForRyu" type="text" disabled>
+      <meter id="ryu" name="scoreRyu" min="0" max="100" disabled></meter> -->
+            <!-- Aoi Meter -->
+            <!-- <input name="scoreForAoi" type="text" disabled />
+      <meter id="aoi" name="scoreAoi" min="0" max="100" disabled></meter> -->
+        </div>
+    </scene>
 </body>
 
 </html>

@@ -1,8 +1,8 @@
 scene {
     width: 1280px;
     height: 720px;
-    display: block;
-    position: relative;
+    display: inline-block;
+    position: absolute;
 }
 
 canvas {
@@ -10,29 +10,108 @@ canvas {
     height: 100%;
 }
 
-div {
-    min-height: 100px;
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: 'Gill Sans MT', sans-serif;
 }
 
 speech {
-    /* position: absolute; */
+    background-color: rgba(231, 226, 218, 0.7);
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    color: black;
     width: 100%;
-    /* position: relative; */
-    /* top: 10px; */
-    /* top: 0; */
-    height: 100%;
+    height: 10vh;
+    padding: 14px;
+    box-sizing: border-box;
 }
 
-.indioClass {
-    /* display: flex; */
+speech name {
+    border-right: 1px solid gray;
+    padding: 0 7px;
+}
+
+speech content input {
+    border: unset;
+    padding: 4px;
+    font-size: 20px;
+}
+
+speech content {
+    font-size: 20px;
+}
+
+.game-menu {
+    border: unset;
+    background-color: rgba(196, 171, 134, 0.7);
+    box-sizing: border-box;
+    color: black;
+    border-radius: 10px;
+}
+
+.game-menu button {
+    border: unset;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.item-definition {
+    background-color: #e7e2da;
+    border: unset;
+    border-radius: 15px;
+    width: 350px;
+}
+
+.handy-information h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.flex-wrapper {
+    display: flex;
     justify-content: space-between;
 }
 
-.indioClass button {
-    padding: 14px;
-    background-color: red;
-    color: white;
-    margin: 7px;
+.handy-information img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.content-part {
+    padding-right: 7px;
+}
+
+.image-part {
+    padding-left: 7px;
+}
+
+.boredom-killer {
+    width: 550px;
     border: unset;
-    border-radius: 10px;
+    background-color: transparent;
+}
+
+.boredom-killer button {
+    background-color: #e9af43;
+    color: black;
+    border: unset;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 28px 65px;
+}
+
+.boredom-killer #liegen_bleiben {
+    margin-right: 2.5px;
+}
+
+.boredom-killer #handy_rausholen {
+    margin-left: 2.5px;
 }

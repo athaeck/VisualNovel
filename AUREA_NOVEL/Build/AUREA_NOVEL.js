@@ -1,0 +1,619 @@
+"use strict";
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    AUREA_NOVEL.f = FudgeCore;
+    AUREA_NOVEL.fS = FudgeStory;
+    //   console.log("Tutorial_WS21 starting");
+    //   // define transitions
+    //   export let transitions = {
+    //     clock: {
+    //       duration: 1,
+    //       alpha: "",
+    //       edge: 1
+    //     }
+    //   };
+    //   export let sound = {
+    //     // music
+    //     backgroundTheme: "",
+    //     // sound
+    //     click: ""
+    //   };
+    //   export let locations = {
+    //     bedroom: {
+    //       name: "Bedroom",
+    //       background: "./Images/Backgrounds/Bedroom.png"
+    //     }
+    //   };
+    // // Stilfrage - Eigenen Styleguide für FS veröffentlichen? 
+    //   export let characters = {
+    //     narrator: {
+    //       name: ""
+    //     },
+    //     aisaka: {
+    //       name: "Aisaka",
+    //       origin: fS.ORIGIN.BOTTOMCENTER,
+    //       pose: {
+    //         angry: "./Images/Characters/aisaka_angry.png",
+    //         happy: "./Images/Characters/aisaka_happy.png",
+    //         upset: "./Images/Characters/aisaka_upset.png"
+    //       }
+    //     },
+    //     kohana: {
+    //       name: "Kohana",
+    //       origin: fS.ORIGIN.BOTTOMCENTER,
+    //       pose: {
+    //         angry: "./Images/Characters/kohana_angry.png",
+    //         happy: "./Images/Characters/kohana_happy.png",
+    //         upset: "./Images/Characters/kohana_upset.png"
+    //       }
+    //     }
+    //   };
+    function fromCenterToMidLeft() {
+        return {
+            start: {
+                translation: AUREA_NOVEL.fS.positions.center,
+                rotation: -1, scaling: new AUREA_NOVEL.fS.Position(0.1, 0.1), color: AUREA_NOVEL.fS.Color.CSS("white", 0)
+            }, end: {
+                translation: AUREA_NOVEL.fS.positionPercent(20, 70), rotation: 1, scaling: new AUREA_NOVEL.fS.Position(0.1, 0.1), color: AUREA_NOVEL.fS.Color.CSS("white", 1)
+            },
+            duration: 2,
+            playmode: AUREA_NOVEL.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    AUREA_NOVEL.fromCenterToMidLeft = fromCenterToMidLeft;
+    function fromDownLeftToTopRight() {
+        return {
+            start: {
+                translation: AUREA_NOVEL.fS.positions.bottomleft,
+                rotation: -1, scaling: new AUREA_NOVEL.fS.Position(0.1, 0.1), color: AUREA_NOVEL.fS.Color.CSS("white", 1)
+            }, end: {
+                translation: AUREA_NOVEL.fS.positions.topright, rotation: 1, scaling: new AUREA_NOVEL.fS.Position(0.1, 0.1), color: AUREA_NOVEL.fS.Color.CSS("white", 1)
+            },
+            duration: 5,
+            playmode: AUREA_NOVEL.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    AUREA_NOVEL.fromDownLeftToTopRight = fromDownLeftToTopRight;
+    function fromLeftToRight() {
+        return {
+            start: {
+                translation: AUREA_NOVEL.fS.positionPercent(10, 80),
+                rotation: -1, scaling: new AUREA_NOVEL.fS.Position(1, 1), color: AUREA_NOVEL.fS.Color.CSS("white", 1)
+            }, end: {
+                translation: AUREA_NOVEL.fS.positionPercent(90, 80), rotation: 1, scaling: new AUREA_NOVEL.fS.Position(1, 1), color: AUREA_NOVEL.fS.Color.CSS("white", 1)
+            },
+            duration: 5,
+            playmode: AUREA_NOVEL.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    AUREA_NOVEL.fromLeftToRight = fromLeftToRight;
+    AUREA_NOVEL.dataForSave = {
+        player: {
+            name: ""
+        },
+        choice: {
+            selectHandy: false
+        },
+        puls: 60
+    };
+    window.addEventListener("load", start);
+    function start(_event) {
+        AUREA_NOVEL.gameMenu = AUREA_NOVEL.fS.Menu.create(AUREA_NOVEL.inGameMenu, AUREA_NOVEL.buttonFunctions, "game-menu");
+        let scenes = [
+            { scene: AUREA_NOVEL.Intro, name: "Introduction" },
+            { id: "glade", scene: AUREA_NOVEL.Glade, name: "Glade", next: "fight" },
+            { id: "vault", scene: AUREA_NOVEL.Vault, name: "Vault", next: "fight" },
+            { id: "fight", scene: AUREA_NOVEL.Fight, name: "Fight" },
+            { id: "end", scene: AUREA_NOVEL.End, name: "Ende" }
+        ];
+        let uiElement = document.querySelector("[type=interface]");
+        AUREA_NOVEL.dataForSave = AUREA_NOVEL.fS.Progress.setData(AUREA_NOVEL.dataForSave, uiElement);
+        // start the sequence
+        AUREA_NOVEL.fS.Progress.go(scenes);
+    }
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+///<reference path="./Main.ts"/>
+var AUREA_NOVEL;
+///<reference path="./Main.ts"/>
+(function (AUREA_NOVEL) {
+    const malePath = "./Images/Characters/player.png";
+    const femalePath = "./Images/Characters/player_female.png";
+    AUREA_NOVEL.characters = {
+        narrator: {
+            name: "Erzähler",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {}
+        },
+        du: {
+            name: AUREA_NOVEL.dataForSave.player.name,
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: ""
+            }
+        },
+        handy: {
+            name: "Handy",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Items/Handy.png"
+            }
+        },
+        instaPost: {
+            name: "Post",
+            origin: AUREA_NOVEL.fS.ORIGIN.BOTTOMLEFT,
+            pose: {
+                idle: ""
+            }
+        },
+        crystal: {
+            name: "Crystal",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Crystal.png"
+            }
+        },
+        ent: {
+            name: "Ent",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Ent.png"
+            }
+        },
+        goma: {
+            name: "Goma",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Goma.png"
+            }
+        },
+        illusion: {
+            name: "Illusion",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Illusion.png"
+            }
+        },
+        inkubus: {
+            name: "Inkubus",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Inkubus.png"
+            }
+        },
+        golem: {
+            name: "Stein Golem",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Iron_Golem.png"
+            }
+        },
+        sebu: {
+            name: "Sebu",
+            origin: AUREA_NOVEL.fS.ORIGIN.CENTER,
+            pose: {
+                idle: "./Images/Characters/Sebu.png"
+            }
+        }
+    };
+    async function ValidateGender() {
+        let name = AUREA_NOVEL.characters.du.name;
+        const response = await fetch(`https://api.genderize.io?name=${name}`);
+        const body = await response.json();
+        if (response.status === 200) {
+            AUREA_NOVEL.characters.du.pose.idle = await eval(`${body.gender}Path`);
+        }
+        else {
+            AUREA_NOVEL.characters.du.pose.idle = malePath;
+        }
+    }
+    AUREA_NOVEL.ValidateGender = ValidateGender;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    async function PlayGoodEnd() {
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.hospital_background, 0.2, true);
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.hospital_room);
+        await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.long.duration, AUREA_NOVEL.transitions.long.alpha, AUREA_NOVEL.transitions.long.edge);
+        await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Was ein Traum, zumindest denke ich dass es ein Traum war. Ich bin so voller Medikamenten, dass ich gar nicht unterschieden kann, ob das gerade wirklich stattgefunden hat oder nicht.");
+        AUREA_NOVEL.fS.Text.setClass("end-screen");
+        AUREA_NOVEL.fS.Text.print("Du hast das Koma überlebt.");
+    }
+    async function PlayBadEnding() {
+        AUREA_NOVEL.fS.Text.setClass("end-screen");
+        AUREA_NOVEL.fS.Text.print("Du bist leider in deinem Komaschlaf verstorben.");
+    }
+    async function ValidateEnding(data) {
+        if (data._isGoodEnding) {
+            await PlayGoodEnd();
+        }
+        else {
+            await PlayBadEnding();
+        }
+    }
+    AUREA_NOVEL.ValidateEnding = ValidateEnding;
+    async function End() {
+        console.log("Start End Sequenz");
+        const endDefinition = {
+            _isGoodEnding: AUREA_NOVEL.dataForSave.puls <= 90
+        };
+        await ValidateEnding(endDefinition);
+    }
+    AUREA_NOVEL.End = End;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    async function Fight() {
+        console.log("Start Fight Sequenz");
+    }
+    AUREA_NOVEL.Fight = Fight;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    async function Glade() {
+        console.log("Start Glade Sequenz");
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.glade, 0.2, true);
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.landscape);
+        await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
+        await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.clock.duration, AUREA_NOVEL.transitions.clock.alpha, AUREA_NOVEL.transitions.clock.edge);
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Wo bin ich? Wie bin ich hier her gekommen? Wie komme ich zurück?");
+    }
+    AUREA_NOVEL.Glade = Glade;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    async function Intro() {
+        console.log("Start with hospital room scene");
+        // fS.Inventory.add(items.pen)
+        // const is: string[] = await fS.Inventory.open();
+        // console.log(is);
+        let delay_5sec = AUREA_NOVEL.fS.Progress.defineSignal([() => AUREA_NOVEL.fS.Progress.delay(5)]);
+        let delay_2sec = AUREA_NOVEL.fS.Progress.defineSignal([() => AUREA_NOVEL.fS.Progress.delay(2)]);
+        // let text = {
+        //   narrator: {
+        //     T0000: "",
+        //     T0001: ""
+        //   },
+        //   aisaka: {
+        //     T0000: "Hi",
+        //     T0001: ""
+        //   },
+        //   kohana: {
+        //     T0000: "Test"
+        //   }
+        // };
+        async function ViewInsta() {
+            for (let i = 0; i < 10; i++) {
+                AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.tochscreen, 1);
+                const postPath = `./Images/Items/insta_0${i}.jpg`;
+                AUREA_NOVEL.characters.instaPost.pose.idle = postPath;
+                await AUREA_NOVEL.fS.Character.animate(AUREA_NOVEL.characters.instaPost, AUREA_NOVEL.characters.instaPost.pose.idle, AUREA_NOVEL.fromDownLeftToTopRight());
+                // await fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
+                await AUREA_NOVEL.fS.Character.hide(AUREA_NOVEL.characters.instaPost);
+            }
+        }
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.hospital_background, 0.2, true);
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.hospital_room);
+        await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.clock.duration, AUREA_NOVEL.transitions.clock.alpha, AUREA_NOVEL.transitions.clock.edge);
+        // await fS.Character.show(characters.aisaka, characters.aisaka.pose.happy, fS.positionPercent(30, 100));
+        // await fS.Character.sho
+        // await fS.update(1);
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Es war einmal ein sehr einsamer und düsterer Tag.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Unser Hauptakteur der Geschichte liegt hier in diesem Zimmer.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Sagen wie er heißt kann ich leider nicht, da bräuchte ich deine Hilfe. Wie würdest du ihn gerne nennen wollen? ");
+        // await fS.Speech.tell(characters.aisaka, "Hi2.");
+        // await fS.Character.hide(characters.aisaka);
+        // characters.
+        // await fS.update(1);
+        AUREA_NOVEL.dataForSave.player.name = await AUREA_NOVEL.fS.Speech.getInput();
+        AUREA_NOVEL.characters.du.name = AUREA_NOVEL.dataForSave.player.name;
+        await AUREA_NOVEL.fS.update(1);
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, `Damit wäre meine Pflicht der Einleitung getan. ${AUREA_NOVEL.characters.du.name} wird nun also übernehmen. Viel Vergnügen!`);
+        await AUREA_NOVEL.ValidateGender();
+        await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
+        await AUREA_NOVEL.fS.update(1);
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Wieder so ein Tag, der seinem vorangegangenem Tag gleicht. Wieder kein Entertainment heute.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Der Tag ist nun schon fast vorbei und ich bin immernoch hier ans Bett gefangen.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Hoffentlich hörrt das bald auf.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ich kann mir die Zeit vielleicht mit meinem Handy vertreiben. Oder ich versuch ein bisschen zu schlafen, es ist jedenfalls schon echt dunkel draußen.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Ich werde immer mal wieder einspringen um dir als Spieler ein paar Dinge zu erklären oder fehlende Informationen zu ergänzen.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Zum Beispiel erhälst du gleich dein Handy als Gegenstand um mit ihm zu interagieren.");
+        let boredom_killer = {
+            liegen_bleiben: "Liegen bleiben",
+            handy_rausholen: "Handy rausholen"
+        };
+        let boredom_killer_element = await AUREA_NOVEL.fS.Menu.getInput(boredom_killer, "boredom-killer");
+        let selected_sleep = false;
+        switch (boredom_killer_element) {
+            case boredom_killer.liegen_bleiben:
+                selected_sleep = true;
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Dann versuch ich doch nochmal zu schlafen.");
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
+                break;
+            default:
+                AUREA_NOVEL.dataForSave.choice.selectHandy = true;
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Zunächst erhälst du einen Überblick über den erhaltenen Gegenstand. Dieser wird sobald du die Information geschlossen hast in dein Inventar für spätere Aktionen abgelegt.");
+                await AUREA_NOVEL.fS.Character.animate(AUREA_NOVEL.characters.handy, AUREA_NOVEL.characters.handy.pose.idle, AUREA_NOVEL.fromCenterToMidLeft());
+                AUREA_NOVEL.fS.Text.setClass("item-definition");
+                AUREA_NOVEL.fS.Text.addClass("handy-information");
+                AUREA_NOVEL.fS.Text.print(`<div>  
+                          <div class="flex-wrapper">
+                            <div class="content-part">
+                              <h1>${AUREA_NOVEL.items.handy.name}</h1>
+                               <span>${AUREA_NOVEL.items.handy.description}</span>
+                            </div>
+                            <div class="image-part">
+                               <div class="item-image-wrapper">
+                                  <img class="item-image" src="${AUREA_NOVEL.items.handy.image}" />
+                                </div>
+                            </div>
+                          </div>
+                      </div>`);
+                await AUREA_NOVEL.fS.Character.hide(AUREA_NOVEL.characters.handy);
+                await AUREA_NOVEL.fS.update(1);
+                AUREA_NOVEL.fS.Inventory.add(AUREA_NOVEL.items.handy);
+                AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.handy_notification, 1, false);
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
+                await ViewInsta();
+                await delay_5sec();
+                // await fS.update(1);
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
+                break;
+        }
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.blackscreen);
+        AUREA_NOVEL.fS.Character.hideAll();
+        AUREA_NOVEL.fS.Speech.hide();
+        AUREA_NOVEL.fS.Sound.fade(AUREA_NOVEL.sound.hospital_background, 0, 1, true);
+        await AUREA_NOVEL.fS.update(1);
+        await delay_5sec();
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.hospital_background, 0.2, true);
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.door_knocking, 0.5, false);
+        await delay_2sec();
+        await AUREA_NOVEL.fS.update(1);
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.hospital_room);
+        await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
+        await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.long.duration, AUREA_NOVEL.transitions.long.alpha, AUREA_NOVEL.transitions.long.edge);
+        AUREA_NOVEL.fS.Speech.show();
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ja?");
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.door_knocking, 0.5, false);
+        await delay_2sec();
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Jahaa?");
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.door_knocking, 0.5, false);
+        await delay_2sec();
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Herein!");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Wieso kommt er nicht herein?");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Hmhh. Er hat aufgehört, dann geh ich wohl mal nachsehen.");
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.footsteps_socks, 0.5, false);
+        await AUREA_NOVEL.fS.Character.animate(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fromLeftToRight());
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "AAAAAAAAh was zum?");
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.portal);
+        AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.portal_sound, 0.5, false);
+        AUREA_NOVEL.fS.Character.hideAll();
+        AUREA_NOVEL.fS.Speech.hide();
+        AUREA_NOVEL.fS.Sound.fade(AUREA_NOVEL.sound.hospital_background, 0, 1, true);
+        await AUREA_NOVEL.fS.update(1);
+        await delay_2sec();
+    }
+    AUREA_NOVEL.Intro = Intro;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    AUREA_NOVEL.items = {
+        // pen: {
+        //     name : "das",
+        //     description : "ist",
+        //     image : "das"
+        // }
+        handy: {
+            name: "Handy",
+            description: "Das ist mein Handy. Vielleicht kann ich mir damit die Zeit vertreiben.",
+            image: "./Images/Items/Handy.png"
+        },
+        crystal_sheet: {
+            name: "Crystals Charakter-Informationen",
+            description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Crystal.",
+            image: "./Images/Items/Crystal_Charaktersheet.png"
+        },
+        ent_sheet: {
+            name: "Ents Charakter-Informationen",
+            description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Ent.",
+            image: "./Images/Items/Ent_Charaktersheet.png"
+        },
+        goma_sheet: {
+            name: "Gomas Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des mächtigen Gomas",
+            image: "./Images/Items/Goma_Charactersheet.png"
+        },
+        illusion_sheet: {
+            name: "Illusions Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Illusion.",
+            image: "./Images/Items/Ilusian_Charaktersheet.png"
+        },
+        inkubus_sheet: {
+            name: "Inkubus Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Inkubus.",
+            image: "./Images/Items/Inkubus_Charaktersheet.png"
+        },
+        sebu_sheet: {
+            name: "Sebus Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Sebu.",
+            image: "./Images/Items/Sebu_Charaktersheet.png"
+        },
+        golem_sheet: {
+            name: "Steingolem Charakter-Informationen",
+            descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Steingolem.",
+            image: "./Images/Items/Steingolem_Charaktersheet.png"
+        }
+    };
+    // export function AddItem(item: fS.ItemDefinition): void {
+    //     items[item.name] = item;
+    // }
+    // export async function GetInventory(): Promise<string[]> {
+    //     return await fS.Inventory.open();
+    // }
+    // export function AddItemToInventory(item: string): boolean {
+    //     const i: fS.ItemDefinition = items[item];
+    //     if (i) {
+    //         fS.Inventory.add(i);
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    AUREA_NOVEL.locations = {
+        hospital_room: {
+            name: "Krankenhauszimmer",
+            background: "./Images/Backgrounds/Krankenhauszimmer_1.png"
+        },
+        blackscreen: {
+            name: "Blackscreen",
+            background: "./Images/Backgrounds/blackscreen.png"
+        },
+        portal: {
+            name: "Portal",
+            background: "./Images/Backgrounds/portal.png"
+        },
+        landscape: {
+            name: "Glade",
+            background: "./Images/Backgrounds/landscape.png"
+        }
+    };
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    AUREA_NOVEL.menuState = true;
+    AUREA_NOVEL.inGameMenu = {
+        save: "Speichern",
+        load: "Laden",
+        close: "Menü schließen",
+        open: "Menü öffnen",
+        credits: "Credits",
+        volumeup: "+",
+        volumedown: "-"
+    };
+    let volume = 5.0;
+    function incrementSound() {
+        if (volume >= 10)
+            return;
+        volume += 0.5;
+        AUREA_NOVEL.fS.Sound.setMasterVolume(volume);
+    }
+    AUREA_NOVEL.incrementSound = incrementSound;
+    function decrementSound() {
+        if (volume <= 0)
+            return;
+        volume -= 0.5;
+        AUREA_NOVEL.fS.Sound.setMasterVolume(volume);
+    }
+    AUREA_NOVEL.decrementSound = decrementSound;
+    function showCredits() {
+        AUREA_NOVEL.fS.Text.addClass("credits");
+        AUREA_NOVEL.fS.Text.print(
+        // "Die Visual Novel wurde mit FudgeStory erstellt." +
+        // "<br/>" +
+        // "Von Nick Häcker" +
+        // "<br/>" +
+        // "Die Elemente wurden selbst gezeichnet." +
+        // "<br/>"
+        `
+            Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
+            Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
+            von <b>Nick Häcker</b>
+            `);
+    }
+    AUREA_NOVEL.showCredits = showCredits;
+    async function buttonFunctions(option) {
+        console.log(option);
+        switch (option) {
+            case AUREA_NOVEL.inGameMenu.save:
+                await AUREA_NOVEL.fS.Progress.save();
+                break;
+            case AUREA_NOVEL.inGameMenu.close:
+                AUREA_NOVEL.gameMenu.close();
+                AUREA_NOVEL.menuState = false;
+                break;
+            case AUREA_NOVEL.inGameMenu.load:
+                await AUREA_NOVEL.fS.Progress.load();
+                break;
+            case AUREA_NOVEL.inGameMenu.volumeup:
+                incrementSound();
+                break;
+            case AUREA_NOVEL.inGameMenu.volumedown:
+                decrementSound();
+                break;
+            case AUREA_NOVEL.inGameMenu.credits:
+                showCredits();
+                break;
+            default:
+                AUREA_NOVEL.gameMenu.open();
+                AUREA_NOVEL.menuState = true;
+                break;
+        }
+    }
+    AUREA_NOVEL.buttonFunctions = buttonFunctions;
+    document.addEventListener("keydown", handleKeyPress);
+    async function handleKeyPress(event) {
+        switch (event.code) {
+            case AUREA_NOVEL.f.KEYBOARD_CODE.F8:
+                buttonFunctions("Speichern");
+                console.log("saved successfull");
+                break;
+            case AUREA_NOVEL.f.KEYBOARD_CODE.F9:
+                buttonFunctions("Laden");
+                console.log("load successfull");
+                break;
+            case AUREA_NOVEL.f.KEYBOARD_CODE.M:
+                if (AUREA_NOVEL.menuState) {
+                    console.log("close");
+                    buttonFunctions("Menü schließen");
+                }
+                else {
+                    console.log("open");
+                    buttonFunctions("Menü öffnen");
+                }
+                break;
+        }
+    }
+    AUREA_NOVEL.handleKeyPress = handleKeyPress;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    AUREA_NOVEL.sound = {
+        // music
+        hospital_background: "./Audio/Hospital_Room_Ambience.wav",
+        glade: "./Audio/Light_Wind Loop.wav",
+        // sound
+        tochscreen: "./Audio/tochscreen.wav",
+        click: "",
+        handy_notification: "./Audio/Notification_02.wav",
+        footsteps_socks: "./Audio/Footsteps_Socks _90_fpm.wav",
+        door_knocking: "./Audio/Triple_Knock_on_Wooden_Door_v2.wav",
+        portal_sound: "./Audio/mystic_portal.wav"
+    };
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    AUREA_NOVEL.transitions = {
+        clock: {
+            duration: 1,
+            alpha: "./FreeTransitions/Others/020.jpg",
+            edge: 1
+        },
+        long: {
+            duration: 5,
+            alpha: "./FreeTransitions/Others/039.jpg",
+            edge: 1
+        }
+    };
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
+(function (AUREA_NOVEL) {
+    async function Vault() {
+        console.log("Start Vault Sequenz");
+    }
+    AUREA_NOVEL.Vault = Vault;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+//# sourceMappingURL=AUREA_NOVEL.js.map
