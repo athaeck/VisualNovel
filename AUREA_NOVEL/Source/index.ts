@@ -3,8 +3,30 @@ namespace AUREA_NOVEL {
   export import fS = FudgeStory;
 
   //   console.log("Tutorial_WS21 starting");
+  export const delay_5sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
+  export const delay_2sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
+
+  export let pulsMeter: HTMLElement;
+  export let puls: HTMLElement;
 
 
+  export function OpenMeter(): void {
+    if (pulsMeter != null && puls != null) {
+      pulsMeter.hidden = false;
+      puls.hidden = false;
+    }
+  }
+  export function CloseMeter(): void {
+    if (pulsMeter != null && puls != null) {
+      pulsMeter.hidden = true;
+      puls.hidden = true;
+    }
+  }
+  export async function FadeToBlack(): Promise<void> {
+    await fS.Location.show(locations.blackscreen);
+    fS.Character.hideAll();
+    fS.Speech.hide();
+  }
   //   // define transitions
   //   export let transitions = {
   //     clock: {
@@ -98,19 +120,25 @@ namespace AUREA_NOVEL {
       name: ""
     },
     choice: {
-      selectHandy: false
+      selectHandy: false,
+      selectEvil: false
     },
-    puls: 60
+    puls: 60,
+    yourPuls: "60"
   };
 
 
 
   window.addEventListener("load", start);
-  function start(_event: Event): void {
+  async function start(_event: Event): Promise<void> {
+    pulsMeter = document.getElementById("puls");
+    puls = document.getElementById("yourPuls");
+    CloseMeter();
     gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
     let scenes: fS.Scenes = [
       { scene: Intro, name: "Introduction" },
-      { id: "glade", scene: Glade, name: "Glade", next: "fight" },
+      { scene: Glade, name: "Glade" },
+      { id: "camp", scene: Camp, name: "Camp", next: "fight" },
       { id: "vault", scene: Vault, name: "Vault", next: "fight" },
       { id: "fight", scene: Fight, name: "Fight" },
       { id: "end", scene: End, name: "Ende" }
@@ -122,6 +150,6 @@ namespace AUREA_NOVEL {
     dataForSave = fS.Progress.setData(dataForSave, uiElement);
 
     // start the sequence
-    fS.Progress.go(scenes);
+    await fS.Progress.go(scenes);
   }
 }

@@ -1,4 +1,4 @@
-///<reference path="./Main.ts"/>
+///<reference path="./index.ts"/>
 namespace AUREA_NOVEL {
   const malePath: string = "./Images/Characters/player.png"
   const femalePath: string = "./Images/Characters/player_female.png"

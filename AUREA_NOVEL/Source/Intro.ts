@@ -6,9 +6,6 @@ namespace AUREA_NOVEL {
     // fS.Inventory.add(items.pen)
     // const is: string[] = await fS.Inventory.open();
     // console.log(is);
-
-    let delay_5sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
-    let delay_2sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
     // let text = {
     //   narrator: {
     //     T0000: "",
@@ -33,6 +30,7 @@ namespace AUREA_NOVEL {
         // await fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
         await fS.Character.hide(characters.instaPost);
       }
+      await fS.update(1);
     }
 
 
@@ -40,16 +38,11 @@ namespace AUREA_NOVEL {
     fS.Sound.play(sound.hospital_background, 0.2, true);
     await fS.Location.show(locations.hospital_room);
     await fS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
-    // await fS.Character.show(characters.aisaka, characters.aisaka.pose.happy, fS.positionPercent(30, 100));
-    // await fS.Character.sho
-    // await fS.update(1);
+
     await fS.Speech.tell(characters.narrator, "Es war einmal ein sehr einsamer und düsterer Tag.");
     await fS.Speech.tell(characters.narrator, "Unser Hauptakteur der Geschichte liegt hier in diesem Zimmer.");
     await fS.Speech.tell(characters.narrator, "Sagen wie er heißt kann ich leider nicht, da bräuchte ich deine Hilfe. Wie würdest du ihn gerne nennen wollen? ");
-    // await fS.Speech.tell(characters.aisaka, "Hi2.");
-    // await fS.Character.hide(characters.aisaka);
-    // characters.
-    // await fS.update(1);
+
     dataForSave.player.name = await fS.Speech.getInput();
     characters.du.name = dataForSave.player.name;
     await fS.update(1);
@@ -74,11 +67,11 @@ namespace AUREA_NOVEL {
 
     let boredom_killer_element = await fS.Menu.getInput(boredom_killer, "boredom-killer");
 
-    let selected_sleep: boolean = false;
+
 
     switch (boredom_killer_element) {
       case boredom_killer.liegen_bleiben:
-        selected_sleep = true;
+
         await fS.Speech.tell(characters.du, "Dann versuch ich doch nochmal zu schlafen.");
         await fS.Speech.tell(characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
         break;
@@ -108,13 +101,11 @@ namespace AUREA_NOVEL {
         await fS.Speech.tell(characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
         await ViewInsta();
         await delay_5sec();
-        // await fS.update(1);
+
         await fS.Speech.tell(characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
         break;
     }
-    await fS.Location.show(locations.blackscreen);
-    fS.Character.hideAll();
-    fS.Speech.hide();
+    await FadeToBlack();
     fS.Sound.fade(sound.hospital_background, 0, 1, true);
     await fS.update(1);
     await delay_5sec();
@@ -138,6 +129,7 @@ namespace AUREA_NOVEL {
     fS.Sound.play(sound.footsteps_socks, 0.5, false);
     await fS.Character.animate(characters.du, characters.du.pose.idle, fromLeftToRight());
     await fS.Speech.tell(characters.du, "AAAAAAAAh was zum?");
+    fS.Sound.fade(sound.footsteps_socks, 0, 0.2);
     await fS.Location.show(locations.portal);
     fS.Sound.play(sound.portal_sound, 0.5, false);
     fS.Character.hideAll();

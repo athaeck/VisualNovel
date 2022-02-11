@@ -1,6 +1,16 @@
 declare namespace AUREA_NOVEL {
+    function Camp(): fS.SceneReturn;
+}
+declare namespace AUREA_NOVEL {
     export import f = FudgeCore;
     export import fS = FudgeStory;
+    const delay_5sec: fS.Signal;
+    const delay_2sec: fS.Signal;
+    let pulsMeter: HTMLElement;
+    let puls: HTMLElement;
+    function OpenMeter(): void;
+    function CloseMeter(): void;
+    function FadeToBlack(): Promise<void>;
     function fromCenterToMidLeft(): fS.AnimationDefinition;
     function fromDownLeftToTopRight(): fS.AnimationDefinition;
     function fromLeftToRight(): fS.AnimationDefinition;
@@ -10,8 +20,10 @@ declare namespace AUREA_NOVEL {
         };
         choice: {
             selectHandy: boolean;
+            selectEvil: boolean;
         };
         puls: number;
+        yourPuls: string;
     };
 }
 declare namespace AUREA_NOVEL {
@@ -114,9 +126,6 @@ declare namespace AUREA_NOVEL {
     function Intro(): fS.SceneReturn;
 }
 declare namespace AUREA_NOVEL {
-    type Items = {
-        [key: string]: fS.ItemDefinition;
-    };
     let items: {
         handy: {
             name: string;
@@ -140,22 +149,22 @@ declare namespace AUREA_NOVEL {
         };
         illusion_sheet: {
             name: string;
-            descpription: string;
+            description: string;
             image: string;
         };
         inkubus_sheet: {
             name: string;
-            descpription: string;
+            description: string;
             image: string;
         };
         sebu_sheet: {
             name: string;
-            descpription: string;
+            description: string;
             image: string;
         };
         golem_sheet: {
             name: string;
-            descpription: string;
+            description: string;
             image: string;
         };
     };
@@ -175,6 +184,18 @@ declare namespace AUREA_NOVEL {
             background: string;
         };
         landscape: {
+            name: string;
+            background: string;
+        };
+        fight: {
+            name: string;
+            background: string;
+        };
+        vault: {
+            name: string;
+            background: string;
+        };
+        camp: {
             name: string;
             background: string;
         };
@@ -208,6 +229,8 @@ declare namespace AUREA_NOVEL {
         footsteps_socks: string;
         door_knocking: string;
         portal_sound: string;
+        stolpern: string;
+        laufen_gras: string;
     };
 }
 declare namespace AUREA_NOVEL {
@@ -225,5 +248,7 @@ declare namespace AUREA_NOVEL {
     };
 }
 declare namespace AUREA_NOVEL {
+    function SelectItem(item: fS.ItemDefinition): Promise<void>;
+    function DenySelection(): Promise<void>;
     function Vault(): fS.SceneReturn;
 }
