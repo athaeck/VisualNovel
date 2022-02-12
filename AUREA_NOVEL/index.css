@@ -260,3 +260,10 @@ input[name="yourPuls"] {
     background-color: black;
     color: white;
 }
+
+.credits {
+    background-color: #e7e2da;
+    color: black;
+    border: 10px solid #c4ab86;
+    border-radius: 15px;
+}

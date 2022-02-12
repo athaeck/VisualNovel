@@ -36,6 +36,10 @@ namespace AUREA_NOVEL {
             `
             Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
             Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
+            Der blaue Übergang wurde im Rahmen der Indi-Night erstellt <br/>
+            Die Sounds kommen alle aus der Envato-Elements Lizenz, die ich besitze <br/>
+            Low Poly Objekte, darunter zählen Aurea Characktere, Umgebungen und Sheets wurden im PRojektstudium von meiner Projektgruppe erstellt <br/>
+            2.5 D Objekte wurden selber mit Adobe Illustrator erstellt <br/>
             von <b>Nick Häcker</b>
             `
         );
