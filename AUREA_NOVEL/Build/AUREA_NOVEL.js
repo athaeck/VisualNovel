@@ -114,7 +114,7 @@ var AUREA_NOVEL;
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Von was für einer Unternehmung sprichst du?");
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ich hab keine Ahnung in was ich hier hineingeraten bin. Das alles hier wirkt so surreal.");
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Sind deine Freunde genauso wie du? Oder sind sie wie ich?");
-            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Wir sehen alle auf eine gwisse Weise gleich aus, aber dann doch wieder recht unterschiedlich.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Wir sehen alle auf eine gewisse Weise gleich aus, aber dann doch wieder recht unterschiedlich.");
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Du wirst gleich sehen wie die anderen aussehen.");
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, `Zunächst haben wir da ${AUREA_NOVEL.characters.ent.name}.`);
             AUREA_NOVEL.fS.Text.setClass("item-definition");
@@ -158,7 +158,7 @@ var AUREA_NOVEL;
                     await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Sehr gut. Das wären alle.");
                     break;
                 default:
-                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Damit du zumindest einen Aurea im Invenatr hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
+                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Damit du zumindest einen Aurea im Inventar hast wird dir bei der zweiten Wahl der Charakter hinzugefügt.");
                     AUREA_NOVEL.SelectItem(AUREA_NOVEL.items.sebu_sheet);
                     await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Sehr gut. Das wären alle.");
                     break;
@@ -410,7 +410,7 @@ var AUREA_NOVEL;
             await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.inkubus, AUREA_NOVEL.characters.inkubus.pose.idle, AUREA_NOVEL.fS.positionPercent(30, 80));
             await AUREA_NOVEL.fS.update(1);
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Da wären wir nun also.");
-            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Schau mal da drüben. Da sind Illusion, der Diener Gomas und Goma. Sie sehen bereit für diesen Kamp aus.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Schau mal da drüben. Da sind Illusion, der Diener Gomas und Goma. Sie sehen bereit für diesen Kampf aus.");
             await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.illusion, AUREA_NOVEL.characters.illusion.pose.idle, AUREA_NOVEL.fS.positionPercent(80, 80));
             await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.goma, AUREA_NOVEL.characters.goma.pose.idle, AUREA_NOVEL.fS.positionPercent(90, 80));
             await AUREA_NOVEL.fS.update(1);
@@ -489,10 +489,11 @@ var AUREA_NOVEL;
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Wo bin ich? Wie bin ich hier her gekommen? Wie komme ich zurück?");
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Gerade war ich doch noch in meinem Zimmer?!? Wo ist das Portal hin??? HIIIIILFEEEEEEEEE!!!!!");
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ich muss mir dringend was überlegen.");
+        let items = [];
         if (AUREA_NOVEL.dataForSave.choice.selectHandy) {
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Hab ich mein Handy dabei? Ich muss schnell mal schauen.");
+            items = await AUREA_NOVEL.fS.Inventory.open();
         }
-        const items = await AUREA_NOVEL.fS.Inventory.open();
         AUREA_NOVEL.OpenMeter();
         await AUREA_NOVEL.fS.update(1);
         if (items && items.length > 0 && items.includes("Handy")) {
@@ -968,7 +969,7 @@ var AUREA_NOVEL;
                     await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, "Sehr gut. Das wären alle.");
                     break;
                 default:
-                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Damit du zumindest einen Aurea im Invenatr hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
+                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Damit du zumindest einen Aurea im Inventar hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
                     SelectItem(AUREA_NOVEL.items.sebu_sheet);
                     await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, "Sehr gut. Das wären alle.");
                     break;

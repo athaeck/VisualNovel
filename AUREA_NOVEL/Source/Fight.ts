@@ -98,7 +98,7 @@ namespace AUREA_NOVEL {
             await fS.Character.show(characters.inkubus, characters.inkubus.pose.idle, fS.positionPercent(30, 80));
             await fS.update(1);
             await fS.Speech.tell(characters.inkubus, "Da wären wir nun also.");
-            await fS.Speech.tell(characters.inkubus, "Schau mal da drüben. Da sind Illusion, der Diener Gomas und Goma. Sie sehen bereit für diesen Kamp aus.");
+            await fS.Speech.tell(characters.inkubus, "Schau mal da drüben. Da sind Illusion, der Diener Gomas und Goma. Sie sehen bereit für diesen Kampf aus.");
             await fS.Character.show(characters.illusion, characters.illusion.pose.idle, fS.positionPercent(80, 80));
             await fS.Character.show(characters.goma, characters.goma.pose.idle, fS.positionPercent(90, 80));
             await fS.update(1);

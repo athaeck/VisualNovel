@@ -13,10 +13,12 @@ namespace AUREA_NOVEL {
 
         await fS.Speech.tell(characters.du, "Ich muss mir dringend was überlegen.");
 
+        let items: string[] = []
         if (dataForSave.choice.selectHandy) {
             await fS.Speech.tell(characters.du, "Hab ich mein Handy dabei? Ich muss schnell mal schauen.");
+            items = await fS.Inventory.open();
         }
-        const items: string[] = await fS.Inventory.open();
+        // const items: string[] = await fS.Inventory.open();
 
         OpenMeter();
         await fS.update(1);

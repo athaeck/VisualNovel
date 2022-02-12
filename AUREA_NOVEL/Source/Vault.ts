@@ -73,7 +73,7 @@ namespace AUREA_NOVEL {
                     await fS.Speech.tell(characters.illusion, "Sehr gut. Das wären alle.");
                     break;
                 default:
-                    await fS.Speech.tell(characters.narrator, "Damit du zumindest einen Aurea im Invenatr hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
+                    await fS.Speech.tell(characters.narrator, "Damit du zumindest einen Aurea im Inventar hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
                     SelectItem(items.sebu_sheet);
                     await fS.Speech.tell(characters.illusion, "Sehr gut. Das wären alle.");
                     break;

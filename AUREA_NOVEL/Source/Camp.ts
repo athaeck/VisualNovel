@@ -14,7 +14,7 @@ namespace AUREA_NOVEL {
             await fS.Speech.tell(characters.du, "Von was für einer Unternehmung sprichst du?");
             await fS.Speech.tell(characters.du, "Ich hab keine Ahnung in was ich hier hineingeraten bin. Das alles hier wirkt so surreal.");
             await fS.Speech.tell(characters.du, "Sind deine Freunde genauso wie du? Oder sind sie wie ich?");
-            await fS.Speech.tell(characters.inkubus, "Wir sehen alle auf eine gwisse Weise gleich aus, aber dann doch wieder recht unterschiedlich.");
+            await fS.Speech.tell(characters.inkubus, "Wir sehen alle auf eine gewisse Weise gleich aus, aber dann doch wieder recht unterschiedlich.");
             await fS.Speech.tell(characters.inkubus, "Du wirst gleich sehen wie die anderen aussehen.");
 
             await fS.Speech.tell(characters.inkubus, `Zunächst haben wir da ${characters.ent.name}.`);
@@ -61,7 +61,7 @@ namespace AUREA_NOVEL {
                     await fS.Speech.tell(characters.inkubus, "Sehr gut. Das wären alle.");
                     break;
                 default:
-                    await fS.Speech.tell(characters.narrator, "Damit du zumindest einen Aurea im Invenatr hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
+                    await fS.Speech.tell(characters.narrator, "Damit du zumindest einen Aurea im Inventar hast wird dir bei der zweiten Wahl der Charakter hinzugefügt.");
                     SelectItem(items.sebu_sheet);
                     await fS.Speech.tell(characters.inkubus, "Sehr gut. Das wären alle.");
                     break;
