@@ -1,19 +1,8 @@
 "use strict";
 var AUREA_NOVEL;
 (function (AUREA_NOVEL) {
-    async function Camp() {
-        console.log("Start Camp Sequenz");
-        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.camp);
-        await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
-        await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.clock.duration, AUREA_NOVEL.transitions.clock.alpha, AUREA_NOVEL.transitions.clock.edge);
-    }
-    AUREA_NOVEL.Camp = Camp;
-})(AUREA_NOVEL || (AUREA_NOVEL = {}));
-var AUREA_NOVEL;
-(function (AUREA_NOVEL) {
     AUREA_NOVEL.f = FudgeCore;
     AUREA_NOVEL.fS = FudgeStory;
-    //   console.log("Tutorial_WS21 starting");
     AUREA_NOVEL.delay_5sec = AUREA_NOVEL.fS.Progress.defineSignal([() => AUREA_NOVEL.fS.Progress.delay(5)]);
     AUREA_NOVEL.delay_2sec = AUREA_NOVEL.fS.Progress.defineSignal([() => AUREA_NOVEL.fS.Progress.delay(2)]);
     function OpenMeter() {
@@ -36,50 +25,6 @@ var AUREA_NOVEL;
         AUREA_NOVEL.fS.Speech.hide();
     }
     AUREA_NOVEL.FadeToBlack = FadeToBlack;
-    //   // define transitions
-    //   export let transitions = {
-    //     clock: {
-    //       duration: 1,
-    //       alpha: "",
-    //       edge: 1
-    //     }
-    //   };
-    //   export let sound = {
-    //     // music
-    //     backgroundTheme: "",
-    //     // sound
-    //     click: ""
-    //   };
-    //   export let locations = {
-    //     bedroom: {
-    //       name: "Bedroom",
-    //       background: "./Images/Backgrounds/Bedroom.png"
-    //     }
-    //   };
-    // // Stilfrage - Eigenen Styleguide für FS veröffentlichen? 
-    //   export let characters = {
-    //     narrator: {
-    //       name: ""
-    //     },
-    //     aisaka: {
-    //       name: "Aisaka",
-    //       origin: fS.ORIGIN.BOTTOMCENTER,
-    //       pose: {
-    //         angry: "./Images/Characters/aisaka_angry.png",
-    //         happy: "./Images/Characters/aisaka_happy.png",
-    //         upset: "./Images/Characters/aisaka_upset.png"
-    //       }
-    //     },
-    //     kohana: {
-    //       name: "Kohana",
-    //       origin: fS.ORIGIN.BOTTOMCENTER,
-    //       pose: {
-    //         angry: "./Images/Characters/kohana_angry.png",
-    //         happy: "./Images/Characters/kohana_happy.png",
-    //         upset: "./Images/Characters/kohana_upset.png"
-    //       }
-    //     }
-    //   };
     function fromCenterToMidLeft() {
         return {
             start: {
@@ -136,6 +81,7 @@ var AUREA_NOVEL;
         AUREA_NOVEL.puls = document.getElementById("yourPuls");
         CloseMeter();
         AUREA_NOVEL.gameMenu = AUREA_NOVEL.fS.Menu.create(AUREA_NOVEL.inGameMenu, AUREA_NOVEL.buttonFunctions, "game-menu");
+        AUREA_NOVEL.buttonFunctions("Menü schließen");
         let scenes = [
             { scene: AUREA_NOVEL.Intro, name: "Introduction" },
             { scene: AUREA_NOVEL.Glade, name: "Glade" },
@@ -146,13 +92,80 @@ var AUREA_NOVEL;
         ];
         let uiElement = document.querySelector("[type=interface]");
         AUREA_NOVEL.dataForSave = AUREA_NOVEL.fS.Progress.setData(AUREA_NOVEL.dataForSave, uiElement);
-        // start the sequence
         await AUREA_NOVEL.fS.Progress.go(scenes);
     }
 })(AUREA_NOVEL || (AUREA_NOVEL = {}));
-///<reference path="./index.ts"/>
 var AUREA_NOVEL;
-///<reference path="./index.ts"/>
+(function (AUREA_NOVEL) {
+    async function Camp() {
+        console.log("Start Camp Sequenz");
+        if (!AUREA_NOVEL.dataForSave.choice.selectEvil) {
+            await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.camp);
+            await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
+            await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.inkubus, AUREA_NOVEL.characters.inkubus.pose.idle, AUREA_NOVEL.fS.positionPercent(90, 80));
+            await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.clock.duration, AUREA_NOVEL.transitions.clock.alpha, AUREA_NOVEL.transitions.clock.edge);
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Das hier ist das Aurea Camp, hier werd ich dir gleich meine Freunde vorstellen, die uns bei unserem Unternehmen unterstützen werden.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Von was für einer Unternehmung sprichst du?");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ich hab keine Ahnung in was ich hier hineingeraten bin. Das alles hier wirkt so surreal.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Sind deine Freunde genauso wie du? Oder sind sie wie ich?");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Wir sehen alle auf eine gwisse Weise gleich aus, aber dann doch wieder recht unterschiedlich.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Du wirst gleich sehen wie die anderen aussehen.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, `Zunächst haben wir da ${AUREA_NOVEL.characters.ent.name}.`);
+            AUREA_NOVEL.fS.Text.setClass("item-definition");
+            AUREA_NOVEL.fS.Text.addClass("aurea-information");
+            AUREA_NOVEL.fS.Text.addClass("select");
+            AUREA_NOVEL.fS.Text.print(`
+                    <div class="page-wrapper">
+                        <div class="image-wrapper">  
+                            <img src="${AUREA_NOVEL.items.ent_sheet.image}" />
+                        </div>
+                    </div>
+            `);
+            const pageSelect = { select: "Auswählen", deny: "Ablehnen" };
+            let response = await AUREA_NOVEL.fS.Menu.getInput(pageSelect, "select");
+            switch (response) {
+                case pageSelect.select:
+                    AUREA_NOVEL.SelectItem(AUREA_NOVEL.items.ent_sheet);
+                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Sehr gut. Dann machen wir mal weiter.");
+                    break;
+                default:
+                    AUREA_NOVEL.DenySelection();
+                    break;
+            }
+            AUREA_NOVEL.fS.Text.close();
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, `Als nächstes haben wir den ${AUREA_NOVEL.characters.golem.name}.`);
+            AUREA_NOVEL.fS.Text.setClass("item-definition");
+            AUREA_NOVEL.fS.Text.addClass("aurea-information");
+            AUREA_NOVEL.fS.Text.addClass("select");
+            AUREA_NOVEL.fS.Text.print(`
+                    <div class="page-wrapper">
+                        <div class="image-wrapper">  
+                            <img src="${AUREA_NOVEL.items.golem_sheet.image}" />
+                        </div>
+                    </div>
+            `);
+            response = await AUREA_NOVEL.fS.Menu.getInput(pageSelect, "select");
+            switch (response) {
+                case pageSelect.select:
+                    AUREA_NOVEL.SelectItem(AUREA_NOVEL.items.golem_sheet);
+                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Sehr gut. Das wären alle.");
+                    break;
+                default:
+                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Damit du zumindest einen Aurea im Invenatr hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
+                    AUREA_NOVEL.SelectItem(AUREA_NOVEL.items.sebu_sheet);
+                    await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Sehr gut. Das wären alle.");
+                    break;
+            }
+            AUREA_NOVEL.fS.Text.close();
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "In unserem Land der Aurea haben abtrünnige beschlossen, die Macht des Landes zu stürzen.");
+        }
+        else {
+            return "glade";
+        }
+    }
+    AUREA_NOVEL.Camp = Camp;
+})(AUREA_NOVEL || (AUREA_NOVEL = {}));
+var AUREA_NOVEL;
 (function (AUREA_NOVEL) {
     const malePath = "./Images/Characters/player.png";
     const femalePath = "./Images/Characters/player_female.png";
@@ -287,7 +300,6 @@ var AUREA_NOVEL;
     async function Fight() {
         console.log("Start Fight Sequenz");
         await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.fight);
-        // await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
         await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.clock.duration, AUREA_NOVEL.transitions.clock.alpha, AUREA_NOVEL.transitions.clock.edge);
         if (AUREA_NOVEL.dataForSave.choice.selectEvil) {
         }
@@ -371,16 +383,25 @@ var AUREA_NOVEL;
                 AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.stolpern, 0.5, false);
                 await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "AAAAAAAAAh");
                 await AUREA_NOVEL.FadeToBlack();
-                // fS.Sound.play(sound.footsteps_socks, 0.5, false);
-                // await fS.Location.show(locations.);
-                // await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
-                // await fS.update(transitions.long.duration, transitions.long.alpha, transitions.long.edge);
-                // fS.Speech.show();
-                // fS.Sound.fade(sound.footsteps_socks, 0, 0.1, false);
                 return "vault";
             default:
+                AUREA_NOVEL.dataForSave.puls -= 10;
+                AUREA_NOVEL.dataForSave.yourPuls = "Dein Puls hat sich um 10 Punkte gesenkt, da du dich beruhigt hast.";
+                await AUREA_NOVEL.fS.update(1);
                 AUREA_NOVEL.CloseMeter();
                 await AUREA_NOVEL.fS.update(1);
+                await AUREA_NOVEL.FadeToBlack();
+                await AUREA_NOVEL.fS.update(1);
+                await AUREA_NOVEL.delay_2sec();
+                await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.landscape);
+                await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
+                await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.inkubus, AUREA_NOVEL.characters.inkubus.pose.idle, AUREA_NOVEL.fS.positionPercent(90, 80));
+                await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.clock.duration, AUREA_NOVEL.transitions.clock.alpha, AUREA_NOVEL.transitions.clock.edge);
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, `Hallo ${AUREA_NOVEL.characters.du.name}.`);
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Wer bist du? Wo kommst du denn jetzt her? Ich hab dich gar nicht kommen sehen");
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, `Mein Name lautet ${AUREA_NOVEL.characters.inkubus.name} und ich bin hier um dich zu suchen und zu empfangen.`);
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.inkubus, "Komm mit ich dich den anderen Vorstellen.");
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Okey? Ich hab ja keine andere Wahl. Ich würde soweiso hier feststecken, ich komme mit.");
                 return "camp";
         }
     }
@@ -390,29 +411,12 @@ var AUREA_NOVEL;
 (function (AUREA_NOVEL) {
     async function Intro() {
         console.log("Start with hospital room scene");
-        // fS.Inventory.add(items.pen)
-        // const is: string[] = await fS.Inventory.open();
-        // console.log(is);
-        // let text = {
-        //   narrator: {
-        //     T0000: "",
-        //     T0001: ""
-        //   },
-        //   aisaka: {
-        //     T0000: "Hi",
-        //     T0001: ""
-        //   },
-        //   kohana: {
-        //     T0000: "Test"
-        //   }
-        // };
         async function ViewInsta() {
             for (let i = 0; i < 10; i++) {
                 AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.tochscreen, 1);
                 const postPath = `./Images/Items/insta_0${i}.jpg`;
                 AUREA_NOVEL.characters.instaPost.pose.idle = postPath;
                 await AUREA_NOVEL.fS.Character.animate(AUREA_NOVEL.characters.instaPost, AUREA_NOVEL.characters.instaPost.pose.idle, AUREA_NOVEL.fromDownLeftToTopRight());
-                // await fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
                 await AUREA_NOVEL.fS.Character.hide(AUREA_NOVEL.characters.instaPost);
             }
             await AUREA_NOVEL.fS.update(1);
@@ -617,14 +621,7 @@ var AUREA_NOVEL;
     AUREA_NOVEL.decrementSound = decrementSound;
     function showCredits() {
         AUREA_NOVEL.fS.Text.addClass("credits");
-        AUREA_NOVEL.fS.Text.print(
-        // "Die Visual Novel wurde mit FudgeStory erstellt." +
-        // "<br/>" +
-        // "Von Nick Häcker" +
-        // "<br/>" +
-        // "Die Elemente wurden selbst gezeichnet." +
-        // "<br/>"
-        `
+        AUREA_NOVEL.fS.Text.print(`
             Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
             Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
             von <b>Nick Häcker</b>
@@ -688,10 +685,8 @@ var AUREA_NOVEL;
 var AUREA_NOVEL;
 (function (AUREA_NOVEL) {
     AUREA_NOVEL.sound = {
-        // music
         hospital_background: "./Audio/Hospital_Room_Ambience.wav",
         glade: "./Audio/Light_Wind Loop.wav",
-        // sound
         tochscreen: "./Audio/tochscreen.wav",
         click: "",
         handy_notification: "./Audio/Notification_02.wav",
@@ -804,15 +799,4 @@ var AUREA_NOVEL;
     }
     AUREA_NOVEL.Vault = Vault;
 })(AUREA_NOVEL || (AUREA_NOVEL = {}));
-// <div class="flex-wrapper" >
-//     <div class="content-part">
-//       <h1>${items.handy.name}</h1>
-//        <span>${items.handy.description}</span>
-//     </div>
-//     <div class="image-part">
-//        <div class="item-image-wrapper">
-//           <img class="item-image" src="${items.handy.image}" />
-//         </div>
-//     </div>
-//   </div>
 //# sourceMappingURL=AUREA_NOVEL.js.map

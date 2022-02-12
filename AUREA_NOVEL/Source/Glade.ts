@@ -98,8 +98,23 @@ namespace AUREA_NOVEL {
 
                 return "vault";
             default:
+                dataForSave.puls -= 10;
+                dataForSave.yourPuls = "Dein Puls hat sich um 10 Punkte gesenkt, da du dich beruhigt hast.";
+                await fS.update(1);
                 CloseMeter();
                 await fS.update(1);
+                await FadeToBlack();
+                await fS.update(1);
+                await delay_2sec();
+                await fS.Location.show(locations.landscape);
+                await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
+                await fS.Character.show(characters.inkubus, characters.inkubus.pose.idle, fS.positionPercent(90, 80));
+                await fS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
+                await fS.Speech.tell(characters.inkubus, `Hallo ${characters.du.name}.`);
+                await fS.Speech.tell(characters.du, "Wer bist du? Wo kommst du denn jetzt her? Ich hab dich gar nicht kommen sehen");
+                await fS.Speech.tell(characters.inkubus, `Mein Name lautet ${characters.inkubus.name} und ich bin hier um dich zu suchen und zu empfangen.`);
+                await fS.Speech.tell(characters.inkubus, "Komm mit ich dich den anderen Vorstellen.");
+                await fS.Speech.tell(characters.du, "Okey? Ich hab ja keine andere Wahl. Ich würde soweiso hier feststecken, ich komme mit.");
                 return "camp";
         }
     }

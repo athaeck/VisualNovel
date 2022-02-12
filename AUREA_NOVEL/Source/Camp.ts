@@ -1,12 +1,75 @@
+///<reference path="./index.ts"/>
 namespace AUREA_NOVEL {
 
     export async function Camp(): fS.SceneReturn {
         console.log("Start Camp Sequenz");
+        if (!dataForSave.choice.selectEvil) {
+            await fS.Location.show(locations.camp);
 
-        await fS.Location.show(locations.camp);
+            await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
+            await fS.Character.show(characters.inkubus, characters.inkubus.pose.idle, fS.positionPercent(90, 80));
+            await fS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
 
-        await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
-        await fS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
+            await fS.Speech.tell(characters.inkubus, "Das hier ist das Aurea Camp, hier werd ich dir gleich meine Freunde vorstellen, die uns bei unserem Unternehmen unterstützen werden.");
+            await fS.Speech.tell(characters.du, "Von was für einer Unternehmung sprichst du?");
+            await fS.Speech.tell(characters.du, "Ich hab keine Ahnung in was ich hier hineingeraten bin. Das alles hier wirkt so surreal.");
+            await fS.Speech.tell(characters.du, "Sind deine Freunde genauso wie du? Oder sind sie wie ich?");
+            await fS.Speech.tell(characters.inkubus, "Wir sehen alle auf eine gwisse Weise gleich aus, aber dann doch wieder recht unterschiedlich.");
+            await fS.Speech.tell(characters.inkubus, "Du wirst gleich sehen wie die anderen aussehen.");
 
+            await fS.Speech.tell(characters.inkubus, `Zunächst haben wir da ${characters.ent.name}.`);
+
+
+            fS.Text.setClass("item-definition");
+            fS.Text.addClass("aurea-information");
+            fS.Text.addClass("select");
+            fS.Text.print(`
+                    <div class="page-wrapper">
+                        <div class="image-wrapper">  
+                            <img src="${items.ent_sheet.image}" />
+                        </div>
+                    </div>
+            `);
+            const pageSelect = { select: "Auswählen", deny: "Ablehnen" };
+            let response: string = await fS.Menu.getInput(pageSelect, "select");
+            switch (response) {
+                case pageSelect.select:
+                    SelectItem(items.ent_sheet);
+                    await fS.Speech.tell(characters.inkubus, "Sehr gut. Dann machen wir mal weiter.");
+                    break;
+                default:
+                    DenySelection();
+                    break;
+            }
+            fS.Text.close();
+            await fS.Speech.tell(characters.inkubus, `Als nächstes haben wir den ${characters.golem.name}.`);
+            fS.Text.setClass("item-definition");
+            fS.Text.addClass("aurea-information");
+            fS.Text.addClass("select");
+            fS.Text.print(`
+                    <div class="page-wrapper">
+                        <div class="image-wrapper">  
+                            <img src="${items.golem_sheet.image}" />
+                        </div>
+                    </div>
+            `);
+            response = await fS.Menu.getInput(pageSelect, "select");
+            switch (response) {
+                case pageSelect.select:
+                    SelectItem(items.golem_sheet);
+                    await fS.Speech.tell(characters.inkubus, "Sehr gut. Das wären alle.");
+                    break;
+                default:
+                    await fS.Speech.tell(characters.narrator, "Damit du zumindest einen Aurea im Invenatr hast wird dir bei der zweiten Wahl der Character hinzugefügt.");
+                    SelectItem(items.sebu_sheet);
+                    await fS.Speech.tell(characters.inkubus, "Sehr gut. Das wären alle.");
+                    break;
+            }
+            fS.Text.close();
+            await fS.Speech.tell(characters.inkubus, "In unserem Land der Aurea haben abtrünnige beschlossen, die Macht des Landes zu stürzen.");
+
+        } else {
+            return "glade";
+        }
     }
 }

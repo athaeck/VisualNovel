@@ -1,10 +1,7 @@
 ///<reference path="./index.ts"/>
 namespace AUREA_NOVEL {
-  const malePath: string = "./Images/Characters/player.png"
-  const femalePath: string = "./Images/Characters/player_female.png"
-  export type Characters = {
-    [key: string]: fS.CharacterDefinition
-  };
+  const malePath: string = "./Images/Characters/player.png";
+  const femalePath: string = "./Images/Characters/player_female.png";
 
   export let characters = {
     narrator: {

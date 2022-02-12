@@ -1,7 +1,4 @@
 declare namespace AUREA_NOVEL {
-    function Camp(): fS.SceneReturn;
-}
-declare namespace AUREA_NOVEL {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     const delay_5sec: fS.Signal;
@@ -27,9 +24,9 @@ declare namespace AUREA_NOVEL {
     };
 }
 declare namespace AUREA_NOVEL {
-    type Characters = {
-        [key: string]: fS.CharacterDefinition;
-    };
+    function Camp(): fS.SceneReturn;
+}
+declare namespace AUREA_NOVEL {
     let characters: {
         narrator: {
             name: string;

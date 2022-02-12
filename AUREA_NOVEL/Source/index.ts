@@ -134,7 +134,9 @@ namespace AUREA_NOVEL {
     pulsMeter = document.getElementById("puls");
     puls = document.getElementById("yourPuls");
     CloseMeter();
+
     gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
+    buttonFunctions("Menü schließen");
     let scenes: fS.Scenes = [
       { scene: Intro, name: "Introduction" },
       { scene: Glade, name: "Glade" },
