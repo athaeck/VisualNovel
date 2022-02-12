@@ -177,7 +177,7 @@ dialog[type="inventory"] name {
     max-width: 60px !important;
     width: 50px;
     /* word-wrap: break-word; */
-    word-break: keep-all;
+    word-break: break-word;
 }
 
 dialog[type="inventory"] description {
@@ -235,4 +235,28 @@ input[name="yourPuls"] {
     border-radius: 10px;
     /* width: 10%; */
     width: 500px;
+}
+
+.end-screen,
+.fight-information {
+    /* background-color: rgba(1, 1, 1, 0.2); */
+    border: unset;
+    padding: 35px 70px;
+    border-radius: 15px;
+}
+
+.alive {
+    background-color: green;
+    color: white;
+}
+
+.victory {
+    background-color: gold;
+    color: white;
+}
+
+.dead,
+.lose {
+    background-color: black;
+    color: white;
 }

@@ -68,7 +68,7 @@ namespace AUREA_NOVEL {
       }
     },
     golem: {
-      name: "Stein Golem",
+      name: "Steingolem",
       origin: fS.ORIGIN.CENTER,
       pose: {
         idle: "./Images/Characters/Iron_Golem.png"
@@ -83,11 +83,18 @@ namespace AUREA_NOVEL {
     }
   };
   export async function ValidateGender(): Promise<void> {
-    let name: string = characters.du.name;
-    const response: Response = await fetch(`https://api.genderize.io?name=${name}`);
-    const body = await response.json();
-    if (response.status === 200) {
-      characters.du.pose.idle = await eval(`${body.gender}Path`);
+    characters.du.name = await dataForSave.player.name;
+    // console.log(dataForSave.player.name)
+    // characters.du.name = name;
+    // console.log(characters.du.name)
+    if (characters.du.name.length > 0) {
+      const response: Response = await fetch(`https://api.genderize.io?name=${characters.du.name}`);
+      const body = await response.json();
+      if (response.status === 200) {
+        characters.du.pose.idle = await eval(`${body.gender}Path`);
+      } else {
+        characters.du.pose.idle = malePath;
+      }
     } else {
       characters.du.pose.idle = malePath;
     }

@@ -42,6 +42,7 @@ namespace AUREA_NOVEL {
                     break;
             }
             fS.Text.close();
+            await fS.update(1);
             await fS.Speech.tell(characters.inkubus, `Als nächstes haben wir den ${characters.golem.name}.`);
             fS.Text.setClass("item-definition");
             fS.Text.addClass("aurea-information");
@@ -66,8 +67,14 @@ namespace AUREA_NOVEL {
                     break;
             }
             fS.Text.close();
-            await fS.Speech.tell(characters.inkubus, "In unserem Land der Aurea haben abtrünnige beschlossen, die Macht des Landes zu stürzen.");
-
+            await fS.update(1);
+            await fS.Speech.tell(characters.inkubus, `Unser Land wurde von der Dunkelheit verschlungen. Sie hat sich die Macht des mächtigsten Aurea ${characters.goma.name} mächtig gemacht um ihn und andere Aurea zu befehligen.`);
+            await fS.Speech.tell(characters.inkubus, "Wir haben uns das Ziel gesetzt das Dunkle zu vertreiben.");
+            await fS.Speech.tell(characters.inkubus, "Um dieses Ziel zu erreichen mussten wir auf dich, unseren Retter, warten und uns versammeln, damit du uns in den Kampf führen kannst.");
+            await fS.Speech.tell(characters.du, "Wann soll dieser Kampf denn stattfinden?");
+            await fS.Speech.tell(characters.inkubus, "Jetzt!");
+            fS.Sound.fade(sound.glade, 0, 0.1, false);
+            await FadeToBlack();
         } else {
             return "glade";
         }

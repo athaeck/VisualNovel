@@ -26,6 +26,7 @@ namespace AUREA_NOVEL {
             fS.Sound.play(sound.tochscreen, 0.5, false);
             await fS.Speech.tell(characters.du, "Mist.");
             await fS.Speech.tell(characters.du, "Kein Empfang. Das war meine letze Rettung, verdammt! HIIIIILFEEEEEEE!!!!?!");
+            fS.Sound.fade(sound.tochscreen, 0, 0.1, false);
         } else {
             await fS.Speech.tell(characters.du, "Verdammt, was mach ich jetzt??!?");
         }
@@ -87,17 +88,11 @@ namespace AUREA_NOVEL {
 
                 await FadeToBlack();
 
-                // fS.Sound.play(sound.footsteps_socks, 0.5, false);
-                // await fS.Location.show(locations.);
-                // await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
-                // await fS.update(transitions.long.duration, transitions.long.alpha, transitions.long.edge);
-                // fS.Speech.show();
-
-
-                // fS.Sound.fade(sound.footsteps_socks, 0, 0.1, false);
-
+                await fS.update(1);
+                await delay_2sec();
                 return "vault";
             default:
+                dataForSave.choice.selectEvil = false;
                 dataForSave.puls -= 10;
                 dataForSave.yourPuls = "Dein Puls hat sich um 10 Punkte gesenkt, da du dich beruhigt hast.";
                 await fS.update(1);
@@ -115,6 +110,9 @@ namespace AUREA_NOVEL {
                 await fS.Speech.tell(characters.inkubus, `Mein Name lautet ${characters.inkubus.name} und ich bin hier um dich zu suchen und zu empfangen.`);
                 await fS.Speech.tell(characters.inkubus, "Komm mit ich dich den anderen Vorstellen.");
                 await fS.Speech.tell(characters.du, "Okey? Ich hab ja keine andere Wahl. Ich würde soweiso hier feststecken, ich komme mit.");
+                await FadeToBlack();
+                await fS.update(1);
+                await delay_2sec();
                 return "camp";
         }
     }

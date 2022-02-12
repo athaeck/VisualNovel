@@ -3,23 +3,6 @@ namespace AUREA_NOVEL {
     console.log("Start with hospital room scene");
 
 
-    // fS.Inventory.add(items.pen)
-    // const is: string[] = await fS.Inventory.open();
-    // console.log(is);
-    // let text = {
-    //   narrator: {
-    //     T0000: "",
-    //     T0001: ""
-    //   },
-    //   aisaka: {
-    //     T0000: "Hi",
-    //     T0001: ""
-    //   },
-    //   kohana: {
-    //     T0000: "Test"
-    //   }
-    // };
-
     async function ViewInsta(): Promise<void> {
 
       for (let i = 0; i < 10; i++) {
@@ -44,10 +27,9 @@ namespace AUREA_NOVEL {
     await fS.Speech.tell(characters.narrator, "Sagen wie er heißt kann ich leider nicht, da bräuchte ich deine Hilfe. Wie würdest du ihn gerne nennen wollen? ");
 
     dataForSave.player.name = await fS.Speech.getInput();
-    characters.du.name = dataForSave.player.name;
     await fS.update(1);
-    await fS.Speech.tell(characters.narrator, `Damit wäre meine Pflicht der Einleitung getan. ${characters.du.name} wird nun also übernehmen. Viel Vergnügen!`);
     await ValidateGender();
+    await fS.Speech.tell(characters.narrator, `Damit wäre meine Pflicht der Einleitung getan. ${characters.du.name} wird nun also übernehmen. Viel Vergnügen!`);
     await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
     await fS.update(1);
     await fS.Speech.tell(characters.du, "Wieder so ein Tag, der seinem vorangegangenem Tag gleicht. Wieder kein Entertainment heute.");
@@ -71,7 +53,7 @@ namespace AUREA_NOVEL {
 
     switch (boredom_killer_element) {
       case boredom_killer.liegen_bleiben:
-
+        dataForSave.choice.selectHandy = false;
         await fS.Speech.tell(characters.du, "Dann versuch ich doch nochmal zu schlafen.");
         await fS.Speech.tell(characters.du, "Ich kann hier aber auch wirklich gar nichts anderes machen. Ich werde morgen mal versuchen mir meine Zeit anders zu vertreiben und was zu suchen.");
         break;
@@ -97,6 +79,7 @@ namespace AUREA_NOVEL {
         await fS.Character.hide(characters.handy);
         await fS.update(1);
         fS.Inventory.add(items.handy);
+        fS.Sound.play(sound.receive_item, 0.5, false);
         fS.Sound.play(sound.handy_notification, 1, false);
         await fS.Speech.tell(characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
         await ViewInsta();

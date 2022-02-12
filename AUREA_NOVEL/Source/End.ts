@@ -8,10 +8,12 @@ namespace AUREA_NOVEL {
         await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
         await fS.Speech.tell(characters.du, "Was ein Traum, zumindest denke ich dass es ein Traum war. Ich bin so voller Medikamenten, dass ich gar nicht unterschieden kann, ob das gerade wirklich stattgefunden hat oder nicht.");
         fS.Text.setClass("end-screen");
+        fS.Text.addClass("alive");
         fS.Text.print("Du hast das Koma überlebt.");
     }
     async function PlayBadEnding(): Promise<void> {
         fS.Text.setClass("end-screen");
+        fS.Text.addClass("dead");
         fS.Text.print("Du bist leider in deinem Komaschlaf verstorben.");
     }
     export async function ValidateEnding(data: StoryDecisionEndingImpact): Promise<void> {

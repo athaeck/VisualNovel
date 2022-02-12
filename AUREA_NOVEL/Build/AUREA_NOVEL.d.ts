@@ -220,6 +220,7 @@ declare namespace AUREA_NOVEL {
     let sound: {
         hospital_background: string;
         glade: string;
+        battle_ambient: string;
         tochscreen: string;
         click: string;
         handy_notification: string;
@@ -228,6 +229,8 @@ declare namespace AUREA_NOVEL {
         portal_sound: string;
         stolpern: string;
         laufen_gras: string;
+        receive_item: string;
+        deny_item: string;
     };
 }
 declare namespace AUREA_NOVEL {

@@ -27,56 +27,7 @@ namespace AUREA_NOVEL {
     fS.Character.hideAll();
     fS.Speech.hide();
   }
-  //   // define transitions
-  //   export let transitions = {
-  //     clock: {
-  //       duration: 1,
-  //       alpha: "",
-  //       edge: 1
-  //     }
-  //   };
 
-
-  //   export let sound = {
-  //     // music
-  //     backgroundTheme: "",
-
-  //     // sound
-  //     click: ""
-  //   };
-
-
-  //   export let locations = {
-  //     bedroom: {
-  //       name: "Bedroom",
-  //       background: "./Images/Backgrounds/Bedroom.png"
-  //     }
-  //   };
-
-  // // Stilfrage - Eigenen Styleguide für FS veröffentlichen? 
-  //   export let characters = {
-  //     narrator: {
-  //       name: ""
-  //     },
-  //     aisaka: {
-  //       name: "Aisaka",
-  //       origin: fS.ORIGIN.BOTTOMCENTER,
-  //       pose: {
-  //         angry: "./Images/Characters/aisaka_angry.png",
-  //         happy: "./Images/Characters/aisaka_happy.png",
-  //         upset: "./Images/Characters/aisaka_upset.png"
-  //       }
-  //     },
-  //     kohana: {
-  //       name: "Kohana",
-  //       origin: fS.ORIGIN.BOTTOMCENTER,
-  //       pose: {
-  //         angry: "./Images/Characters/kohana_angry.png",
-  //         happy: "./Images/Characters/kohana_happy.png",
-  //         upset: "./Images/Characters/kohana_upset.png"
-  //       }
-  //     }
-  //   };
 
   export function fromCenterToMidLeft(): fS.AnimationDefinition {
     return {
@@ -131,27 +82,31 @@ namespace AUREA_NOVEL {
 
   window.addEventListener("load", start);
   async function start(_event: Event): Promise<void> {
-    pulsMeter = document.getElementById("puls");
-    puls = document.getElementById("yourPuls");
-    CloseMeter();
+    try {
+      pulsMeter = document.getElementById("puls");
+      puls = document.getElementById("yourPuls");
+      CloseMeter();
 
-    gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
-    buttonFunctions("Menü schließen");
-    let scenes: fS.Scenes = [
-      { scene: Intro, name: "Introduction" },
-      { scene: Glade, name: "Glade" },
-      { id: "camp", scene: Camp, name: "Camp", next: "fight" },
-      { id: "vault", scene: Vault, name: "Vault", next: "fight" },
-      { id: "fight", scene: Fight, name: "Fight" },
-      { id: "end", scene: End, name: "Ende" }
-    ];
+      gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
+      buttonFunctions("Menü schließen");
+      let scenes: fS.Scenes = [
+        { id: "intro", scene: Intro, name: "Introduction" },
+        { id: "glade", scene: Glade, name: "Glade" },
+        { id: "camp", scene: Camp, name: "Camp", next: "fight" },
+        { id: "vault", scene: Vault, name: "Vault", next: "fight" },
+        { id: "fight", scene: Fight, name: "Fight" },
+        { id: "end", scene: End, name: "Ende" }
+      ];
 
 
 
-    let uiElement: HTMLElement = document.querySelector("[type=interface]");
-    dataForSave = fS.Progress.setData(dataForSave, uiElement);
-
-    // start the sequence
-    await fS.Progress.go(scenes);
+      let uiElement: HTMLElement = document.querySelector("[type=interface]");
+      dataForSave = fS.Progress.setData(dataForSave, uiElement);
+      await ValidateGender();
+      // start the sequence
+      await fS.Progress.go(scenes);
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

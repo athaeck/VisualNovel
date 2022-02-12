@@ -6,37 +6,37 @@ namespace AUREA_NOVEL {
             image: "./Images/Items/Handy.png"
         },
         crystal_sheet: {
-            name: "Crystals Charakter-Informationen",
+            name: "Crystal",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Crystal.",
             image: "./Images/Items/Crystal_Charaktersheet.png"
         },
         ent_sheet: {
-            name: "Ents Charakter-Informationen",
+            name: "Ent",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Ent.",
             image: "./Images/Items/Ent_Charaktersheet.png"
         },
         goma_sheet: {
-            name: "Gomas Charakter-Informationen",
+            name: "Goma",
             descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des mächtigen Gomas",
             image: "./Images/Items/Goma_Charactersheet.png"
         },
         illusion_sheet: {
-            name: "Illusions Charakter-Informationen",
+            name: "Illusion",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Illusion.",
             image: "./Images/Items/Ilusian_Charaktersheet.png"
         },
         inkubus_sheet: {
-            name: "Inkubus Charakter-Informationen",
+            name: "Inkubus",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Inkubus.",
             image: "./Images/Items/Inkubus_Charaktersheet.png"
         },
         sebu_sheet: {
-            name: "Sebus Charakter-Informationen",
+            name: "Sebu",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Sebu.",
             image: "./Images/Items/Sebu_Charaktersheet.png"
         },
         golem_sheet: {
-            name: "Steingolem Charakter-Informationen",
+            name: "Steingolem",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Steingolem.",
             image: "./Images/Items/Steingolem_Charaktersheet.png"
         }

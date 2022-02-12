@@ -107,6 +107,7 @@ namespace Template {
 
   window.addEventListener("load", start);
   function start(_event: Event): void {
+    await ValidateGender();
     gameMenu = fS.Menu.create(inGameMenu, buttonFunctions, "game-menu");
     let scenes: fS.Scenes = [
       { scene: Intro, name: "Introduction" },

@@ -2,9 +2,11 @@ namespace AUREA_NOVEL {
 
     export async function SelectItem(item: fS.ItemDefinition): Promise<void> {
         fS.Inventory.add(item);
+        fS.Sound.play(sound.receive_item, 0.5, false);
     }
     export async function DenySelection(): Promise<void> {
         await fS.Speech.tell(characters.narrator, "Für den weiteren Verlauf der Geschichte ist es sinnvoll das Angebot anzunehmen!");
+        fS.Sound.play(sound.deny_item, 0.5, false);
     }
 
     export async function Vault(): fS.SceneReturn {
@@ -23,6 +25,8 @@ namespace AUREA_NOVEL {
             await fS.Speech.tell(characters.du, "Ich verstehe nicht.");
             await fS.Speech.tell(characters.du, "Wieso ich?");
             await fS.Speech.tell(characters.illusion, `Alles zu seiner Zeit ${characters.du.name}`);
+            await fS.Speech.tell(characters.illusion, "Wir haben dich auf der Lichtung ohnmächtig auf dem Boden liegend gefunden und hierher gebracht.");
+            await fS.Speech.tell(characters.illusion, "Du scheinst wohl irgendwo dagegegen gelaufen zu sein und dadurch ohnmächtig geworden.");
             await fS.Speech.tell(characters.illusion, "Bevor du erfährst was du machen musst, teile ich dir mit auf wessen Hilfe zu zählen kannst.");
 
             await fS.Speech.tell(characters.illusion, `Zunächst haben wir da ${characters.crystal.name}.`);
@@ -50,6 +54,7 @@ namespace AUREA_NOVEL {
                     break;
             }
             fS.Text.close();
+            await fS.update(1);
             await fS.Speech.tell(characters.illusion, `Als nächstes haben wir den Drachen ${characters.sebu.name}.`);
             fS.Text.setClass("item-definition");
             fS.Text.addClass("aurea-information");
@@ -74,6 +79,7 @@ namespace AUREA_NOVEL {
                     break;
             }
             fS.Text.close();
+            await fS.update(1);
             await fS.Speech.tell(characters.illusion, "In unserem Land der Aurea haben abtrünnige beschlossen, die Macht des Landes zu stürzen.");
             await fS.Speech.tell(characters.illusion, "Deine Aufgabe wird dabei sein, dass du uns und Goma helfen musst. Bist du dabei?");
             await fS.Speech.tell(characters.du, "Okey?");
@@ -88,14 +94,3 @@ namespace AUREA_NOVEL {
         }
     }
 }
-                        // <div class="flex-wrapper" >
-                        //     <div class="content-part">
-                        //       <h1>${items.handy.name}</h1>
-                        //        <span>${items.handy.description}</span>
-                        //     </div>
-                        //     <div class="image-part">
-                        //        <div class="item-image-wrapper">
-                        //           <img class="item-image" src="${items.handy.image}" />
-                        //         </div>
-                        //     </div>
-                        //   </div>
