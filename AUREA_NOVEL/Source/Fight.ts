@@ -11,7 +11,7 @@ namespace AUREA_NOVEL {
         }
     }
     function DidIWin(): boolean {
-        return (Math.floor(Math.random() * 2) == 0) ? true : false;
+        return temp_items.length === 2;
     }
     export async function Fight(): fS.SceneReturn {
         console.log("Start Fight Sequenz");
@@ -46,12 +46,14 @@ namespace AUREA_NOVEL {
                     }
                 });
             });
-            await delay_2sec();
-            // await fS.update(1);
+            fS.Sound.play(sound.fight, 0.5, false);
+            await delay_5sec();
+            await fS.update(1);
             const win: boolean = DidIWin();
             fS.Text.setClass("fight-information");
             fS.Text.addClass(`${win ? "victory" : "lose"}`);
             fS.Text.print(`${win ? "Du hast gewonnen" : "Du hast verloren"}`);
+            fS.Sound.fade(sound.fight, 0, 0.1, false);
             if (win) {
                 items.forEach(async (i) => {
                     Object.keys(characters).forEach(async (y: string) => {
@@ -63,7 +65,7 @@ namespace AUREA_NOVEL {
                     });
                 });
                 await delay_2sec();
-                // await fS.update(1);
+
                 await fS.Character.hide(characters.inkubus);
                 await fS.Character.hide(characters.ent);
                 await fS.Character.show(characters.goma, characters.goma.pose.idle, fS.positionPercent(90, 80));
@@ -106,10 +108,6 @@ namespace AUREA_NOVEL {
             await fS.Speech.tell(characters.goma, "Das wollen wir jetzt aber sehen was da passiert.");
             await fS.Speech.tell(characters.inkubus, "Bist du bereit?");
             await fS.Speech.tell(characters.du, "So bereit wie man nur sein kann. ");
-            // await fS.Speech.tell(characters.inkubus, `Oh neeeeein! Sie haben ${characters.du.name} auf ihre Seite ziehen können.`);
-            // await fS.Speech.tell(characters.inkubus, "Wir müssen sie dennoch versuchen zu schlagen! Und das Land zu retten!");
-            // await fS.Speech.tell(characters.illusion, "Sieh einer an, sie meinen immernoch, dass sie die Erlöser sind.");
-            // await fS.Speech.tell(characters.illusion, `Los ${characters.du.name}, zeig ihnen, was wir von ihnen halten!`);
 
             await HandleInventoryInput();
             const items: string[] = temp_items;
@@ -123,12 +121,14 @@ namespace AUREA_NOVEL {
                     }
                 });
             });
-            await delay_2sec();
+            fS.Sound.play(sound.fight, 0.5, false);
+            await delay_5sec();
+            await fS.update(1);
             const win: boolean = DidIWin();
             fS.Text.setClass("fight-information");
             fS.Text.addClass(`${win ? "victory" : "lose"}`);
             fS.Text.print(`${win ? "Du hast gewonnen" : "Du hast verloren"}`);
-
+            fS.Sound.fade(sound.fight, 0, 0.1, false);
             if (win) {
                 items.forEach(async (i) => {
                     Object.keys(characters).forEach(async (y: string) => {

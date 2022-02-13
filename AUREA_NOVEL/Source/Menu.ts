@@ -26,19 +26,13 @@ namespace AUREA_NOVEL {
     }
     export function showCredits(): void {
         fS.Text.addClass("credits");
-        fS.Text.print(
-            // "Die Visual Novel wurde mit FudgeStory erstellt." +
-            // "<br/>" +
-            // "Von Nick Häcker" +
-            // "<br/>" +
-            // "Die Elemente wurden selbst gezeichnet." +
-            // "<br/>"
-            `
-            Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
-            Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
-            Der blaue Übergang wurde im Rahmen der Indi-Night erstellt <br/>
-            Die Sounds kommen alle aus der Envato-Elements Lizenz, die ich besitze <br/>
-            Low Poly Objekte, darunter zählen Aurea Characktere, Umgebungen und Sheets wurden im PRojektstudium von meiner Projektgruppe erstellt <br/>
+        fS.Text.print(`
+            Die Visual Novel wurde mit FudgeStory erstellt.
+            Characktere: <a target="_blank" href="https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept">https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept</a> <br/>
+            Blackscreen Location: <a target="_blank" href="https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg">https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg</a> <br/>
+            Der blaue Übergang wurde im Rahmen der Indi-Night SoSe 2021 erstellt <br/>
+            Die Sounds kommen alle aus der Envato-Elements Lib. Alle Stücke sind über das Projekt VN über meinen Account lizenziert<br/>
+            Low Poly Objekte, darunter zählen Aurea Characktere, Umgebungen und Sheets wurden im Projektstudium von meiner Projektgruppe erstellt <br/>
             2.5 D Objekte wurden selber mit Adobe Illustrator erstellt <br/>
             von <b>Nick Häcker</b>
             `

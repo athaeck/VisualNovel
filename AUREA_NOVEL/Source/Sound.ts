@@ -5,6 +5,7 @@ namespace AUREA_NOVEL {
         hospital_background: "./Audio/Hospital_Room_Ambience.wav",
         glade: "./Audio/Light_Wind Loop.wav",
         battle_ambient: "./Audio/battle_ambient.wav",
+        fight: "./Audio/fight.wav",
 
         // sound
         tochscreen: "./Audio/tochscreen.wav",

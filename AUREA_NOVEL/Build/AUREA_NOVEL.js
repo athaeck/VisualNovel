@@ -329,7 +329,7 @@ var AUREA_NOVEL;
         }
     }
     function DidIWin() {
-        return (Math.floor(Math.random() * 2) == 0) ? true : false;
+        return temp_items.length === 2;
     }
     async function Fight() {
         console.log("Start Fight Sequenz");
@@ -360,11 +360,14 @@ var AUREA_NOVEL;
                     }
                 });
             });
-            await AUREA_NOVEL.delay_2sec();
+            AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.fight, 0.5, false);
+            await AUREA_NOVEL.delay_5sec();
+            await AUREA_NOVEL.fS.update(1);
             const win = DidIWin();
             AUREA_NOVEL.fS.Text.setClass("fight-information");
             AUREA_NOVEL.fS.Text.addClass(`${win ? "victory" : "lose"}`);
             AUREA_NOVEL.fS.Text.print(`${win ? "Du hast gewonnen" : "Du hast verloren"}`);
+            AUREA_NOVEL.fS.Sound.fade(AUREA_NOVEL.sound.fight, 0, 0.1, false);
             if (win) {
                 items.forEach(async (i) => {
                     Object.keys(AUREA_NOVEL.characters).forEach(async (y) => {
@@ -429,11 +432,14 @@ var AUREA_NOVEL;
                     }
                 });
             });
-            await AUREA_NOVEL.delay_2sec();
+            AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.fight, 0.5, false);
+            await AUREA_NOVEL.delay_5sec();
+            await AUREA_NOVEL.fS.update(1);
             const win = DidIWin();
             AUREA_NOVEL.fS.Text.setClass("fight-information");
             AUREA_NOVEL.fS.Text.addClass(`${win ? "victory" : "lose"}`);
             AUREA_NOVEL.fS.Text.print(`${win ? "Du hast gewonnen" : "Du hast verloren"}`);
+            AUREA_NOVEL.fS.Sound.fade(AUREA_NOVEL.sound.fight, 0, 0.1, false);
             if (win) {
                 items.forEach(async (i) => {
                     Object.keys(AUREA_NOVEL.characters).forEach(async (y) => {
@@ -801,11 +807,12 @@ var AUREA_NOVEL;
     function showCredits() {
         AUREA_NOVEL.fS.Text.addClass("credits");
         AUREA_NOVEL.fS.Text.print(`
-            Characktere: https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept <br/>
-            Blackscreen Location: https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg <br/>
-            Der blaue Übergang wurde im Rahmen der Indi-Night erstellt <br/>
-            Die Sounds kommen alle aus der Envato-Elements Lizenz, die ich besitze <br/>
-            Low Poly Objekte, darunter zählen Aurea Characktere, Umgebungen und Sheets wurden im PRojektstudium von meiner Projektgruppe erstellt <br/>
+            Die Visual Novel wurde mit FudgeStory erstellt.
+            Characktere: <a target="_blank" href="https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept">https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept</a> <br/>
+            Blackscreen Location: <a target="_blank" href="https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg">https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg</a> <br/>
+            Der blaue Übergang wurde im Rahmen der Indi-Night SoSe 2021 erstellt <br/>
+            Die Sounds kommen alle aus der Envato-Elements Lib. Alle Stücke sind über das Projekt VN über meinen Account lizenziert<br/>
+            Low Poly Objekte, darunter zählen Aurea Characktere, Umgebungen und Sheets wurden im Projektstudium von meiner Projektgruppe erstellt <br/>
             2.5 D Objekte wurden selber mit Adobe Illustrator erstellt <br/>
             von <b>Nick Häcker</b>
             `);
@@ -871,6 +878,7 @@ var AUREA_NOVEL;
         hospital_background: "./Audio/Hospital_Room_Ambience.wav",
         glade: "./Audio/Light_Wind Loop.wav",
         battle_ambient: "./Audio/battle_ambient.wav",
+        fight: "./Audio/fight.wav",
         tochscreen: "./Audio/tochscreen.wav",
         click: "",
         handy_notification: "./Audio/Notification_02.wav",

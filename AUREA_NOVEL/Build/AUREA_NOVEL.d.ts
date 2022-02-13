@@ -221,6 +221,7 @@ declare namespace AUREA_NOVEL {
         hospital_background: string;
         glade: string;
         battle_ambient: string;
+        fight: string;
         tochscreen: string;
         click: string;
         handy_notification: string;
