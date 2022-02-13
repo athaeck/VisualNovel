@@ -4,7 +4,8 @@ namespace AUREA_NOVEL {
     };
     async function PlayGoodEnd(): Promise<void> {
         fS.Sound.play(sound.hospital_background, 0.2, true);
-
+        await fS.Location.show(locations.hospital_room);
+        await fS.update(transitions.long.duration, transitions.long.alpha, transitions.long.edge);
         await fS.Character.show(characters.du, characters.du.pose.idle, fS.positionPercent(10, 80));
         await fS.Speech.tell(characters.du, "Was ein Traum, zumindest denke ich dass es ein Traum war. Ich bin so voller Medikamenten, dass ich gar nicht unterschieden kann, ob das gerade wirklich stattgefunden hat oder nicht.");
         fS.Text.setClass("end-screen");
