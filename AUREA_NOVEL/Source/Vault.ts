@@ -27,7 +27,7 @@ namespace AUREA_NOVEL {
             await fS.Speech.tell(characters.illusion, `Alles zu seiner Zeit ${characters.du.name}`);
             await fS.Speech.tell(characters.illusion, "Wir haben dich auf der Lichtung ohnmächtig auf dem Boden liegend gefunden und hierher gebracht.");
             await fS.Speech.tell(characters.illusion, "Du scheinst wohl irgendwo dagegegen gelaufen zu sein und dadurch ohnmächtig geworden.");
-            await fS.Speech.tell(characters.illusion, "Bevor du erfährst was du machen musst, teile ich dir mit auf wessen Hilfe zu zählen kannst.");
+            await fS.Speech.tell(characters.illusion, "Bevor du erfährst was du machen musst, teile ich dir mit auf wessen Hilfe du zählen kannst.");
 
             await fS.Speech.tell(characters.illusion, `Zunächst haben wir da ${characters.crystal.name}.`);
 

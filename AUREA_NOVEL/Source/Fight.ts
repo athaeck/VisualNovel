@@ -169,6 +169,7 @@ namespace AUREA_NOVEL {
         }
         CloseMeter();
         await FadeToBlack();
+        fS.Sound.fade(sound.battle_ambient, 0, 0.1, false);
         await delay_2sec();
     }
 }

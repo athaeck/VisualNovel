@@ -282,6 +282,8 @@ var AUREA_NOVEL;
 (function (AUREA_NOVEL) {
     async function PlayGoodEnd() {
         AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.hospital_background, 0.2, true);
+        await AUREA_NOVEL.fS.Location.show(AUREA_NOVEL.locations.hospital_room);
+        await AUREA_NOVEL.fS.update(AUREA_NOVEL.transitions.long.duration, AUREA_NOVEL.transitions.long.alpha, AUREA_NOVEL.transitions.long.edge);
         await AUREA_NOVEL.fS.Character.show(AUREA_NOVEL.characters.du, AUREA_NOVEL.characters.du.pose.idle, AUREA_NOVEL.fS.positionPercent(10, 80));
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Was ein Traum, zumindest denke ich dass es ein Traum war. Ich bin so voller Medikamenten, dass ich gar nicht unterschieden kann, ob das gerade wirklich stattgefunden hat oder nicht.");
         AUREA_NOVEL.fS.Text.setClass("end-screen");
@@ -480,6 +482,7 @@ var AUREA_NOVEL;
         }
         AUREA_NOVEL.CloseMeter();
         await AUREA_NOVEL.FadeToBlack();
+        AUREA_NOVEL.fS.Sound.fade(AUREA_NOVEL.sound.battle_ambient, 0, 0.1, false);
         await AUREA_NOVEL.delay_2sec();
     }
     AUREA_NOVEL.Fight = Fight;
@@ -619,7 +622,7 @@ var AUREA_NOVEL;
         await AUREA_NOVEL.fS.update(1);
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Wieder so ein Tag, der seinem vorangegangenem Tag gleicht. Wieder kein Entertainment heute.");
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Der Tag ist nun schon fast vorbei und ich bin immernoch hier ans Bett gefangen.");
-        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Hoffentlich hörrt das bald auf.");
+        await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Hoffentlich hört das bald auf.");
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Ich kann mir die Zeit vielleicht mit meinem Handy vertreiben. Oder ich versuch ein bisschen zu schlafen, es ist jedenfalls schon echt dunkel draußen.");
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Ich werde immer mal wieder einspringen um dir als Spieler ein paar Dinge zu erklären oder fehlende Informationen zu ergänzen.");
         await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.narrator, "Zum Beispiel erhälst du gleich dein Handy als Gegenstand um mit ihm zu interagieren.");
@@ -658,7 +661,7 @@ var AUREA_NOVEL;
                 AUREA_NOVEL.fS.Inventory.add(AUREA_NOVEL.items.handy);
                 AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.receive_item, 0.5, false);
                 AUREA_NOVEL.fS.Sound.play(AUREA_NOVEL.sound.handy_notification, 1, false);
-                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
+                await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Oh wie wenn man vom Teufel spricht, meldet sich das Handy. Mal sehen was Instagram so her gibt.");
                 await ViewInsta();
                 await AUREA_NOVEL.delay_5sec();
                 await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.du, "Mheee. LAAAAAANGWEILIG. Mir ist langweilig. Dann versuch ich doch nochmal einen Moment zu schlafen.");
@@ -934,7 +937,7 @@ var AUREA_NOVEL;
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, `Alles zu seiner Zeit ${AUREA_NOVEL.characters.du.name}`);
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, "Wir haben dich auf der Lichtung ohnmächtig auf dem Boden liegend gefunden und hierher gebracht.");
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, "Du scheinst wohl irgendwo dagegegen gelaufen zu sein und dadurch ohnmächtig geworden.");
-            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, "Bevor du erfährst was du machen musst, teile ich dir mit auf wessen Hilfe zu zählen kannst.");
+            await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, "Bevor du erfährst was du machen musst, teile ich dir mit auf wessen Hilfe du zählen kannst.");
             await AUREA_NOVEL.fS.Speech.tell(AUREA_NOVEL.characters.illusion, `Zunächst haben wir da ${AUREA_NOVEL.characters.crystal.name}.`);
             AUREA_NOVEL.fS.Text.setClass("item-definition");
             AUREA_NOVEL.fS.Text.addClass("aurea-information");

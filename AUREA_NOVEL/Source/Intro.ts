@@ -34,7 +34,7 @@ namespace AUREA_NOVEL {
     await fS.update(1);
     await fS.Speech.tell(characters.du, "Wieder so ein Tag, der seinem vorangegangenem Tag gleicht. Wieder kein Entertainment heute.");
     await fS.Speech.tell(characters.du, "Der Tag ist nun schon fast vorbei und ich bin immernoch hier ans Bett gefangen.");
-    await fS.Speech.tell(characters.du, "Hoffentlich hörrt das bald auf.");
+    await fS.Speech.tell(characters.du, "Hoffentlich hört das bald auf.");
     await fS.Speech.tell(characters.du, "Ich kann mir die Zeit vielleicht mit meinem Handy vertreiben. Oder ich versuch ein bisschen zu schlafen, es ist jedenfalls schon echt dunkel draußen.");
 
     await fS.Speech.tell(characters.narrator, "Ich werde immer mal wieder einspringen um dir als Spieler ein paar Dinge zu erklären oder fehlende Informationen zu ergänzen.");
@@ -81,7 +81,7 @@ namespace AUREA_NOVEL {
         fS.Inventory.add(items.handy);
         fS.Sound.play(sound.receive_item, 0.5, false);
         fS.Sound.play(sound.handy_notification, 1, false);
-        await fS.Speech.tell(characters.du, "Oh wie wenn man vom Teufel spricht, spricht das Handy. Mal sehen was Instagram so her gibt.");
+        await fS.Speech.tell(characters.du, "Oh wie wenn man vom Teufel spricht, meldet sich das Handy. Mal sehen was Instagram so her gibt.");
         await ViewInsta();
         await delay_5sec();
 
