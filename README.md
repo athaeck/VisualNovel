@@ -8,12 +8,11 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU
 
-<object data="./AureaNovel.pdf" type="application/pdf">
-    <embed src="./AureaNovel.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./AureaNovel.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-
+## Links
+- [Zur Visual Novel](https://nickhaecker.github.io/VisualNovel/AUREA_NOVEL/)
+- [Code](./Source/)
+- [Konzept](./AureaNovel.pdf)
+- [Gepacktes Archiv][]
 ##  Abgabeformat
 
 * Die Konzeption soll als .pdf-Dokument abgegeben werden.
