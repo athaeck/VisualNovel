@@ -10,7 +10,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 ## Links
 - [Zur Visual Novel](https://nickhaecker.github.io/VisualNovel/AUREA_NOVEL/)
-- [Code](./Source/)
+- [Code](./AUREA_NOVEL/Source/)
 - [Konzept](./AureaNovel.pdf)
 - [Gepacktes Archiv][]
 ##  Abgabeformat
