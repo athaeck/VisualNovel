@@ -33,6 +33,8 @@ namespace AUREA_NOVEL {
             <i>Blau - weißer Screen:</i> Hintergrund der Indi Night SoSe 21<br/>
             <i>2.5D Hintergründe:</i> Selber erstellt<br/>
             <i>3D Blender Hintergünder:</i> wurden im Rahmen des Projektstudiums von Aurea angefertigt<br/>
+            <b>Transitions</b><br/>
+            <i>Alle: </i>stammen aus dem FreeTransitions Ordner, der bereits dem Projekt zum Start vorlag<br/>
             <b>Chracktere</b><br/>
             <i>Spieler Charackter:</i> https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept weiblich | männlich <br/>
             <i>Goma:</i> https://free3d.com/3d-model/blue-dragon-low-polygon-art-vr-ar-low-poly-3d-model-6604.html erstellt von SHULDYAKOV<br/>
