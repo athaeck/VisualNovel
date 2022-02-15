@@ -810,14 +810,18 @@ var AUREA_NOVEL;
     function showCredits() {
         AUREA_NOVEL.fS.Text.addClass("credits");
         AUREA_NOVEL.fS.Text.print(`
-            Die Visual Novel wurde mit FudgeStory erstellt.
-            Characktere: <a target="_blank" href="https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept">https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept</a> <br/>
-            Blackscreen Location: <a target="_blank" href="https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg">https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg</a> <br/>
-            Der blaue Übergang wurde im Rahmen der Indi-Night SoSe 2021 erstellt <br/>
-            Die Sounds kommen alle aus der Envato-Elements Lib. Alle Stücke sind über das Projekt VN über meinen Account lizenziert<br/>
-            Low Poly Objekte, darunter zählen Aurea Characktere, Umgebungen und Sheets wurden im Projektstudium von meiner Projektgruppe erstellt <br/>
-            2.5 D Objekte wurden selber mit Adobe Illustrator erstellt <br/>
-            von <b>Nick Häcker</b>
+            Die Visual Novel wurde mit FudgeStory erstellt.<br/>
+            <b>Hintergründe</b><br/>
+            <i>Schwarzer Screen:</i> https://www.bravo.de/assets/field/image/blacklivesmatter_darum_posten_alle_stars_ein_schwarzes_foto.jpg<br/>
+            <i>Blau - weißer Screen:</i> Hintergrund der Indi Night SoSe 21<br/>
+            <i>2.5D Hintergründe:</i> Selber erstellt<br/>
+            <i>3D Blender Hintergünder:</i> wurden im Rahmen des Projektstudiums von Aurea angefertigt<br/>
+            <b>Chracktere</b><br/>
+            <i>Spieler Charackter:</i> https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept weiblich | männlich <br/>
+            <i>Goma:</i> https://free3d.com/3d-model/blue-dragon-low-polygon-art-vr-ar-low-poly-3d-model-6604.html erstellt von SHULDYAKOV<br/>
+            <i>Aurea:</i> wurden im Rahmen des Projektstudiums von Aurea angefertigt<br/>
+            <b>Sounds</b><br/>
+            <i>Sound Ordner:</i> alle Sounds stammen aus meiner Envato Elements Lizenz und wurden mit dem Projekt VN lizensiert<br/>
             `);
     }
     AUREA_NOVEL.showCredits = showCredits;
