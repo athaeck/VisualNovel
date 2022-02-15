@@ -39,6 +39,16 @@ namespace AUREA_NOVEL {
             <i>Spieler Charackter:</i> https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept weiblich | männlich <br/>
             <i>Goma:</i> https://free3d.com/3d-model/blue-dragon-low-polygon-art-vr-ar-low-poly-3d-model-6604.html erstellt von SHULDYAKOV<br/>
             <i>Aurea:</i> wurden im Rahmen des Projektstudiums von Aurea angefertigt<br/>
+            <b>Insta Posts</b><br/>
+            <i>insta_00.jpg: </i>von twinelogos, abgerufen: 07.02.2022<br/>
+            <i>insta_01.jpg: </i>von IMAX, abgerufen: 07.02.2022<br/>
+            <i>insta_02.jpg: </i>von transfermarkt_official, abgerufen: 07.02.2022<br/>
+            <i>insta_03.jpg: </i>von thegoodquote.co, abgerufen: 07.02.2022<br/>
+            <i>insta_04.jpg: </i>von ilive, abgerufen: 07.02.2022<br/>
+            <i>insta_05.jpg: </i>von salomonfreeski, abgerufen: 07.02.2022<br/>
+            <i>insta_07.jpg: </i>von salomonfreeski, abgerufen: 07.02.2022<br/>
+            <i>insta_08.jpg: </i>von salomonfreeski, abgerufen: 07.02.2022<br/>
+            <i>insta_09.jpg: </i>von natgeowild, abgerufen: 07.02.2022<br/>
             <b>Sounds</b><br/>
             <i>Sound Ordner:</i> alle Sounds stammen aus meiner Envato Elements Lizenz und wurden mit dem Projekt VN lizensiert<br/>
             `

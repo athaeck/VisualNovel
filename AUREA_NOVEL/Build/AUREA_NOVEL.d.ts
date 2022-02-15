@@ -223,7 +223,6 @@ declare namespace AUREA_NOVEL {
         battle_ambient: string;
         fight: string;
         tochscreen: string;
-        click: string;
         handy_notification: string;
         footsteps_socks: string;
         door_knocking: string;

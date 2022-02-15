@@ -2,7 +2,6 @@ namespace AUREA_NOVEL {
   export import f = FudgeCore;
   export import fS = FudgeStory;
 
-  //   console.log("Tutorial_WS21 starting");
   export const delay_5sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
   export const delay_2sec: fS.Signal = fS.Progress.defineSignal([() => fS.Progress.delay(2)]);
 

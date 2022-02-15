@@ -713,37 +713,37 @@ var AUREA_NOVEL;
         crystal_sheet: {
             name: "Crystal",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Crystal.",
-            image: "./Images/Items/Crystal_Charaktersheet.png"
+            image: "./Images/Items/Crystal_Charaktersheet.jpg"
         },
         ent_sheet: {
             name: "Ent",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Ent.",
-            image: "./Images/Items/Ent_Charaktersheet.png"
+            image: "./Images/Items/Ent_Charaktersheet.jpg"
         },
         goma_sheet: {
             name: "Goma",
             descpription: "Das sind die Charakter Eigenschaften und Fähigkieten des mächtigen Gomas",
-            image: "./Images/Items/Goma_Charactersheet.png"
+            image: "./Images/Items/Goma_Charactersheet.jpg"
         },
         illusion_sheet: {
             name: "Illusion",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Illusion.",
-            image: "./Images/Items/Ilusian_Charaktersheet.png"
+            image: "./Images/Items/Ilusian_Charaktersheet.jpg"
         },
         inkubus_sheet: {
             name: "Inkubus",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Inkubus.",
-            image: "./Images/Items/Inkubus_Charaktersheet.png"
+            image: "./Images/Items/Inkubus_Charaktersheet.jpg"
         },
         sebu_sheet: {
             name: "Sebu",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Sebu.",
-            image: "./Images/Items/Sebu_Charaktersheet.png"
+            image: "./Images/Items/Sebu_Charaktersheet.jpg"
         },
         golem_sheet: {
             name: "Steingolem",
             description: "Das sind die Charakter Eigenschaften und Fähigkieten des Aurea Steingolem.",
-            image: "./Images/Items/Steingolem_Charaktersheet.png"
+            image: "./Images/Items/Steingolem_Charaktersheet.jpg"
         }
     };
 })(AUREA_NOVEL || (AUREA_NOVEL = {}));
@@ -756,27 +756,27 @@ var AUREA_NOVEL;
         },
         blackscreen: {
             name: "Blackscreen",
-            background: "./Images/Backgrounds/blackscreen.png"
+            background: "./Images/Backgrounds/blackscreen.jpg"
         },
         portal: {
             name: "Portal",
-            background: "./Images/Backgrounds/portal.png"
+            background: "./Images/Backgrounds/portal.jpg"
         },
         landscape: {
             name: "Glade",
-            background: "./Images/Backgrounds/landscape.png"
+            background: "./Images/Backgrounds/landscape.jpg"
         },
         fight: {
             name: "Kampf",
-            background: "./Images/Backgrounds/Fight.png"
+            background: "./Images/Backgrounds/Fight.jpg"
         },
         vault: {
             name: "Verließ",
-            background: "./Images/Backgrounds/Verlies.png"
+            background: "./Images/Backgrounds/Verlies.jpg"
         },
         camp: {
             name: "Camp",
-            background: "./Images/Backgrounds/camp.png"
+            background: "./Images/Backgrounds/camp.jpg"
         }
     };
 })(AUREA_NOVEL || (AUREA_NOVEL = {}));
@@ -822,6 +822,16 @@ var AUREA_NOVEL;
             <i>Spieler Charackter:</i> https://www.vecteezy.com/vector-art/2382548-isometric-charcter-concept weiblich | männlich <br/>
             <i>Goma:</i> https://free3d.com/3d-model/blue-dragon-low-polygon-art-vr-ar-low-poly-3d-model-6604.html erstellt von SHULDYAKOV<br/>
             <i>Aurea:</i> wurden im Rahmen des Projektstudiums von Aurea angefertigt<br/>
+            <b>Insta Posts</b><br/>
+            <i>insta_00.jpg: </i>von twinelogos, abgerufen: 07.02.2022<br/>
+            <i>insta_01.jpg: </i>von IMAX, abgerufen: 07.02.2022<br/>
+            <i>insta_02.jpg: </i>von transfermarkt_official, abgerufen: 07.02.2022<br/>
+            <i>insta_03.jpg: </i>von thegoodquote.co, abgerufen: 07.02.2022<br/>
+            <i>insta_04.jpg: </i>von ilive, abgerufen: 07.02.2022<br/>
+            <i>insta_05.jpg: </i>von salomonfreeski, abgerufen: 07.02.2022<br/>
+            <i>insta_07.jpg: </i>von salomonfreeski, abgerufen: 07.02.2022<br/>
+            <i>insta_08.jpg: </i>von salomonfreeski, abgerufen: 07.02.2022<br/>
+            <i>insta_09.jpg: </i>von natgeowild, abgerufen: 07.02.2022<br/>
             <b>Sounds</b><br/>
             <i>Sound Ordner:</i> alle Sounds stammen aus meiner Envato Elements Lizenz und wurden mit dem Projekt VN lizensiert<br/>
             `);
@@ -889,7 +899,6 @@ var AUREA_NOVEL;
         battle_ambient: "./Audio/battle_ambient.wav",
         fight: "./Audio/fight.wav",
         tochscreen: "./Audio/tochscreen.wav",
-        click: "",
         handy_notification: "./Audio/Notification_02.wav",
         footsteps_socks: "./Audio/Footsteps_Socks _90_fpm.wav",
         door_knocking: "./Audio/Triple_Knock_on_Wooden_Door_v2.wav",

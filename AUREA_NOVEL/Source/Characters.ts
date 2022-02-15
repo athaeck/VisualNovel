@@ -84,9 +84,7 @@ namespace AUREA_NOVEL {
   };
   export async function ValidateGender(): Promise<void> {
     characters.du.name = await dataForSave.player.name;
-    // console.log(dataForSave.player.name)
-    // characters.du.name = name;
-    // console.log(characters.du.name)
+
     if (characters.du.name.length > 0) {
       const response: Response = await fetch(`https://api.genderize.io?name=${characters.du.name}`);
       const body = await response.json();

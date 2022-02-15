@@ -7,27 +7,27 @@ namespace AUREA_NOVEL {
         },
         blackscreen: {
             name: "Blackscreen",
-            background: "./Images/Backgrounds/blackscreen.png"
+            background: "./Images/Backgrounds/blackscreen.jpg"
         },
         portal: {
             name: "Portal",
-            background: "./Images/Backgrounds/portal.png"
+            background: "./Images/Backgrounds/portal.jpg"
         },
         landscape: {
             name: "Glade",
-            background: "./Images/Backgrounds/landscape.png"
+            background: "./Images/Backgrounds/landscape.jpg"
         },
         fight: {
             name: "Kampf",
-            background: "./Images/Backgrounds/Fight.png"
+            background: "./Images/Backgrounds/Fight.jpg"
         },
         vault: {
             name: "Verließ",
-            background: "./Images/Backgrounds/Verlies.png"
+            background: "./Images/Backgrounds/Verlies.jpg"
         },
         camp: {
             name: "Camp",
-            background: "./Images/Backgrounds/camp.png"
+            background: "./Images/Backgrounds/camp.jpg"
         }
     };
 }

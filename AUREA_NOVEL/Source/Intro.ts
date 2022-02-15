@@ -10,7 +10,6 @@ namespace AUREA_NOVEL {
         const postPath: string = `./Images/Items/insta_0${i}.jpg`;
         characters.instaPost.pose.idle = postPath;
         await fS.Character.animate(characters.instaPost, characters.instaPost.pose.idle, fromDownLeftToTopRight());
-        // await fS.Progress.defineSignal([() => fS.Progress.delay(5)]);
         await fS.Character.hide(characters.instaPost);
       }
       await fS.update(1);
