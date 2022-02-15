@@ -5,7 +5,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 f8 = speichern des Spielstandes <br/>
 f9 = Spiel an Spielstand laden <br/>
 M = öffnen und schließen des Menüs <br/>
-
+linke Maustaste = steuern der Visual Novel <br/>
 # Reference
 - [APIs](https://jirkadelloro.github.io/FUDGE_Story/Documentation/Reference/#fudge-story-reference)
 
