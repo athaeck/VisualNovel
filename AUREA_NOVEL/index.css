@@ -17,7 +17,7 @@ body {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    font-family: 'Gill Sans MT', sans-serif;
+    font-family: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
 }
 
 speech {
@@ -41,6 +41,7 @@ speech content input {
     border: unset;
     padding: 4px;
     font-size: 20px;
+    font-family: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
 }
 
 speech content {
@@ -149,7 +150,6 @@ dialog.select button {
 }
 
 dialog[type="inventory"] ul {
-    /* lis */
     width: 700px;
 }
 
@@ -176,7 +176,6 @@ dialog[type="inventory"] name {
     font-size: 20px;
     max-width: 60px !important;
     width: 50px;
-    /* word-wrap: break-word; */
     word-break: break-word;
 }
 
@@ -193,19 +192,9 @@ dialog[type="inventory"] amount {
     text-align: center;
 }
 
-
-/* dialog[type="inventory"] name,
-dialog[type="inventory"] amount,
-dialog[type="inventory"] description {
-    padding: 7px 0;
-} */
-
 dialog[type="inventory"] button {
-    /* border-radius: unset; */
     background-image: url("./Images/Assets/close.png");
     border: unset;
-    /* object-fit: contain;
-     */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -239,7 +228,6 @@ input[name="yourPuls"] {
 
 .end-screen,
 .fight-information {
-    /* background-color: rgba(1, 1, 1, 0.2); */
     border: unset;
     padding: 35px 70px;
     border-radius: 15px;
@@ -266,4 +254,8 @@ input[name="yourPuls"] {
     color: black;
     border: 10px solid #c4ab86;
     border-radius: 15px;
+}
+
+.credits a {
+    color: black;
 }
