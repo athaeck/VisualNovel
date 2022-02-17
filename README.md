@@ -16,6 +16,7 @@ linke Maustaste = steuern der Visual Novel <br/>
 - [Zur Visual Novel](https://nickhaecker.github.io/VisualNovel/AUREA_NOVEL/)
 - [Code](./AUREA_NOVEL/Source/)
 - [Konzept](./AureaNovel.pdf)
+- [Branching Narratives](./Branching-Narratives.jpg)
 - [Gepacktes Archiv](./Archiv/AUREA_NOVEL.zip)
 ##  Abgabeformat
 
