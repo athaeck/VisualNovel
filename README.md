@@ -13,7 +13,7 @@ linke Maustaste = steuern der Visual Novel <br/>
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU
 
 ## Links
-- [Zur Visual Novel](https://nickhaecker.github.io/VisualNovel/AUREA_NOVEL/)
+- [Zur Visual Novel](https://athaeck.github.io/VisualNovel/AUREA_NOVEL/)
 - [Code](./AUREA_NOVEL/Source/)
 - [Konzept](./AureaNovel.pdf)
 - [Branching Narratives](./Branching-Narratives.jpg)
